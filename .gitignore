@@ -1,0 +1,35 @@
+# PCO Project .gitignore
+
+# Course documents (keep local only)
+*.docx
+extracted_text.txt
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Log files
+*.log
+
+# Node modules (if any JS is added later)
+node_modules/
+
+# Build files
+dist/
+build/

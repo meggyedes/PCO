@@ -9,6 +9,7 @@ This website showcases my journey into the HBO-ICT program and serves as a compr
 ## 🎯 Assignment Requirements Met
 
 ### Content Requirements
+
 - ✅ **Home Page**: Landing page with motivation, 2 images, 2 links, 2 paragraphs, and 1 list
 - ✅ **Profile Page**: Personal information, characteristics, hobbies, and social media links
 - ✅ **Dashboard**: Study monitor with HTML table showing courses, grades, and NBSA progress
@@ -16,6 +17,7 @@ This website showcases my journey into the HBO-ICT program and serves as a compr
 - ✅ **FAQ**: Comprehensive answers to HZ University facility and procedure questions
 
 ### Technical Requirements
+
 - ✅ **Bootstrap Framework**: Primary styling framework for responsive design
 - ✅ **Custom CSS**: Additional styling for unique design elements
 - ✅ **Semantic HTML5**: Proper use of semantic tags (nav, main, aside, article, section, footer)
@@ -24,6 +26,7 @@ This website showcases my journey into the HBO-ICT program and serves as a compr
 - ✅ **Responsive Design**: Mobile-friendly layout using Bootstrap grid system
 
 ### Design Features
+
 - ✅ **Consistent Branding**: HZ University color scheme and professional appearance
 - ✅ **User Experience**: Intuitive navigation and clear content hierarchy
 - ✅ **Accessibility**: Proper contrast, focus indicators, and screen reader support
@@ -51,6 +54,7 @@ PCO/
 ## 🎨 Design System
 
 ### Color Palette
+
 - **Primary**: #0066cc (HZ Blue)
 - **Secondary**: #004499 (Dark Blue)
 - **Accent**: #ff6600 (Orange)
@@ -58,11 +62,13 @@ PCO/
 - **Warning**: #ffc107 (Yellow)
 
 ### Typography
+
 - **Font Family**: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 - **Heading Hierarchy**: Proper H1-H6 structure for SEO
 - **Line Height**: 1.6 for optimal readability
 
 ### Components
+
 - **Navigation**: Sticky top navigation with active page highlighting
 - **Cards**: Consistent card design with hover effects
 - **Buttons**: Custom styled buttons with hover animations
@@ -71,23 +77,27 @@ PCO/
 ## 🚀 Features
 
 ### Navigation
+
 - Responsive navigation bar with mobile hamburger menu
 - Active page highlighting
 - Consistent aside menu with useful HZ University links
 
 ### Dashboard
+
 - Comprehensive study monitor table
 - Progress visualization with progress bars
 - NBSA boundary tracking
 - Color-coded status indicators
 
 ### Blog System
+
 - Blog feed with post previews
 - Individual blog post pages
 - Category system with badges
 - Related posts and social sharing
 
 ### FAQ System
+
 - Accordion-style FAQ layout
 - Comprehensive answers to HZ University questions
 - Search-friendly content structure
@@ -95,6 +105,7 @@ PCO/
 ## 📱 Responsive Design
 
 The website is fully responsive and tested on:
+
 - Desktop (1200px+)
 - Tablet (768px - 1199px)
 - Mobile (320px - 767px)
@@ -127,6 +138,7 @@ The website is fully responsive and tested on:
 ## 🎓 Learning Outcomes
 
 This project demonstrates:
+
 - Understanding of HTML5 semantic structure
 - Proficiency with CSS and Bootstrap framework
 - Responsive web design principles
@@ -137,6 +149,7 @@ This project demonstrates:
 ## 🔄 Future Enhancements
 
 Potential improvements for future iterations:
+
 - Add JavaScript interactivity
 - Implement a contact form
 - Add more blog posts
@@ -149,15 +162,16 @@ Potential improvements for future iterations:
 **Course**: Program & Career Orientation (PCO)  
 **Institution**: HZ University of Applied Sciences  
 **Program**: HBO-ICT  
-**Academic Year**: 2024-2025  
+**Academic Year**: 2024-2025
 
 ## 📞 Contact
 
 For questions about this project or my studies:
+
 - **Email**: [Your HZ Email]
 - **LinkedIn**: [Your LinkedIn Profile]
 - **GitHub**: [Your GitHub Profile]
 
 ---
 
-*This website was created as part of the PCO course requirements and represents my commitment to learning and professional development in the ICT field.*
+_This website was created as part of the PCO course requirements and represents my commitment to learning and professional development in the ICT field._

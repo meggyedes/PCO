@@ -1,0 +1,56 @@
+Image Placeholder Information for PCO Portfolio Website
+=======================================================
+
+This folder contains placeholder information for images used in the portfolio website.
+For a complete implementation, you should replace these with actual images.
+
+Required Images:
+================
+
+1. hz-logo.png (30px height)
+   - HZ University logo for navigation
+   - Should be transparent background PNG
+   - Available from: https://hz.nl/
+
+2. coding-hero.jpg (responsive)
+   - Hero section image showing student coding
+   - Suggested size: 800x600px
+   - Alt text: "Student coding on laptop"
+
+3. technology-passion.jpg (responsive)
+   - Technology and innovation concept image
+   - Suggested size: 600x400px
+   - Alt text: "Technology and innovation concept"
+
+4. profile-photo.jpg (250px max-width, circular)
+   - Personal profile photo
+   - Should be square aspect ratio for circular crop
+   - Alt text: "My Profile Photo"
+
+Image Sources:
+==============
+- Unsplash.com (free stock photos)
+- Pexels.com (free stock photos)
+- HZ University website (for official logos)
+- Personal photos (for profile picture)
+
+Recommended Search Terms:
+========================
+- "student coding laptop"
+- "technology innovation"
+- "programming computer"
+- "software development"
+- "university student studying"
+
+Image Optimization:
+==================
+- Use WebP format for better compression
+- Optimize file sizes for web (under 500KB each)
+- Ensure images are responsive-friendly
+- Include proper alt text for accessibility
+
+Implementation Note:
+===================
+The website is designed to work with placeholder images initially.
+You can add actual images by placing them in this folder with the correct filenames.
+The CSS includes styling for proper image display and responsive behavior.

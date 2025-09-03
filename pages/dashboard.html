@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Study Progress | My ICT Portfolio</title>
+    <meta
+      name="description"
+      content="Track my academic progress through the HBO-ICT program at HZ University, including courses, grades, and study achievements."
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="../assets/images/hz-logo.jpg"
+            alt="HZ University of Applied Sciences Logo"
+            height="30"
+            class="me-2"
+          />
+          My ICT Portfolio
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="faq.html">FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Content Area -->
+        <main class="col-lg-9 col-md-8">
+          <div class="container py-4">
+            <!-- Dashboard Header -->
+            <section class="mb-4">
+              <h1 class="display-5 fw-bold text-primary mb-3">
+                Study Dashboard
+              </h1>
+              <p class="lead">
+                Track my progress through the HBO-ICT program at HZ University
+                of Applied Sciences.
+              </p>
+            </section>
+
+            <!-- Disclaimer Notice -->
+            <section class="mb-4">
+              <div class="alert alert-warning border-0 shadow-sm" role="alert">
+                <div class="d-flex align-items-start">
+                  <div class="flex-shrink-0">
+                    <i
+                      class="bi bi-exclamation-triangle-fill fs-3 text-warning me-3"
+                    ></i>
+                  </div>
+                  <div class="flex-grow-1">
+                    <h4 class="alert-heading mb-3">
+                      <i class="bi bi-info-circle me-2"></i>Demonstration
+                      Dashboard Notice
+                    </h4>
+                    <p class="mb-3">
+                      <strong>Important:</strong> This dashboard currently
+                      displays <strong>placeholder and mock data</strong> for
+                      demonstration purposes only. The information shown here is
+                      <strong>not actual academic data</strong>
+                      from HZ University of Applied Sciences.
+                    </p>
+                    <p class="mb-3">
+                      This dashboard serves as a
+                      <strong>framework and illustration</strong>
+                      of how I plan to track my real academic progress once
+                      actual course data, grades, and study results become
+                      available during my studies at HZ University.
+                    </p>
+                    <hr class="my-3" />
+                    <p class="mb-0">
+                      <i class="bi bi-lightbulb text-warning me-2"></i>
+                      <strong>Purpose:</strong> This section demonstrates the
+                      structure and functionality of a comprehensive academic
+                      tracking system that will be populated with real data as I
+                      progress through my ICT program.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Progress Overview -->
+            <section class="mb-5">
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <div class="card bg-primary text-white">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Current Year</h5>
+                      <h2 class="display-6">1st</h2>
+                      <p class="card-text">Propaedeutic Year</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card bg-success text-white">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Credits Earned</h5>
+                      <h2 class="display-6">15</h2>
+                      <p class="card-text">out of 60 EC</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card bg-warning text-dark">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">NBSA Progress</h5>
+                      <h2 class="display-6">25%</h2>
+                      <p class="card-text">Need 45 EC minimum</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Progress Bar -->
+            <section class="mb-5">
+              <h3 class="h4 mb-3">Study Progress Visualization</h3>
+              <div class="card">
+                <div class="card-body">
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                      <span>Overall Progress (15/60 EC)</span>
+                      <span>25%</span>
+                    </div>
+                    <div class="progress" style="height: 20px">
+                      <div
+                        class="progress-bar bg-success"
+                        role="progressbar"
+                        style="width: 25%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                      <span>NBSA Boundary Progress (15/45 EC)</span>
+                      <span>33%</span>
+                    </div>
+                    <div class="progress" style="height: 20px">
+                      <div
+                        class="progress-bar bg-warning"
+                        role="progressbar"
+                        style="width: 33%"
+                      ></div>
+                    </div>
+                  </div>
+                  <small class="text-muted">
+                    <i class="bi bi-info-circle me-1"></i>
+                    NBSA (Negative Binding Study Advice) requires minimum 45 EC
+                    in the first year
+                  </small>
+                </div>
+              </div>
+            </section>
+
+            <!-- Study Monitor Table -->
+            <section class="mb-5">
+              <h3 class="h4 mb-3">Study Monitor - First Year Overview</h3>
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead class="table-primary">
+                    <tr>
+                      <th rowspan="2">Quarter</th>
+                      <th rowspan="2">Course</th>
+                      <th rowspan="2">EC</th>
+                      <th colspan="2">Assessment</th>
+                      <th rowspan="2">Grade</th>
+                      <th rowspan="2">Status</th>
+                    </tr>
+                    <tr>
+                      <th>Type</th>
+                      <th>Weight</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Quarter 1 -->
+                    <tr class="table-light">
+                      <td rowspan="4" class="align-middle fw-bold">Q1</td>
+                      <td rowspan="2" class="align-middle">
+                        Program & Career Orientation (PCO)
+                      </td>
+                      <td rowspan="2" class="align-middle">2.5</td>
+                      <td>Portfolio</td>
+                      <td>100%</td>
+                      <td class="text-success fw-bold">7.5</td>
+                      <td><span class="badge bg-success">Passed</span></td>
+                    </tr>
+                    <tr class="table-light">
+                      <td>Presentation</td>
+                      <td>-</td>
+                      <td class="text-success fw-bold">8.0</td>
+                      <td><span class="badge bg-success">Passed</span></td>
+                    </tr>
+                    <tr class="table-light">
+                      <td rowspan="2" class="align-middle">
+                        Computer Science Basics (CSB)
+                      </td>
+                      <td rowspan="2" class="align-middle">5</td>
+                      <td>Written Exam</td>
+                      <td>50%</td>
+                      <td class="text-success fw-bold">6.8</td>
+                      <td><span class="badge bg-success">Passed</span></td>
+                    </tr>
+                    <tr class="table-light">
+                      <td>Practical Exam</td>
+                      <td>50%</td>
+                      <td class="text-success fw-bold">7.2</td>
+                      <td><span class="badge bg-success">Passed</span></td>
+                    </tr>
+
+                    <!-- Quarter 2 -->
+                    <tr>
+                      <td rowspan="4" class="align-middle fw-bold">Q2</td>
+                      <td rowspan="2" class="align-middle">
+                        Programming Basics (PB)
+                      </td>
+                      <td rowspan="2" class="align-middle">5</td>
+                      <td>Portfolio</td>
+                      <td>60%</td>
+                      <td class="text-success fw-bold">7.5</td>
+                      <td><span class="badge bg-success">Passed</span></td>
+                    </tr>
+                    <tr>
+                      <td>Written Exam</td>
+                      <td>40%</td>
+                      <td class="text-success fw-bold">6.5</td>
+                      <td><span class="badge bg-success">Passed</span></td>
+                    </tr>
+                    <tr>
+                      <td rowspan="2" class="align-middle">
+                        Object Oriented Programming (OOP)
+                      </td>
+                      <td rowspan="2" class="align-middle">5</td>
+                      <td>Portfolio</td>
+                      <td>70%</td>
+                      <td class="text-muted">-</td>
+                      <td>
+                        <span class="badge bg-warning">In Progress</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Written Exam</td>
+                      <td>30%</td>
+                      <td class="text-muted">-</td>
+                      <td><span class="badge bg-primary">Upcoming</span></td>
+                    </tr>
+
+                    <!-- Quarter 3 -->
+                    <tr class="table-light">
+                      <td rowspan="4" class="align-middle fw-bold">Q3</td>
+                      <td rowspan="2" class="align-middle">
+                        Framework Development 1 (FD1)
+                      </td>
+                      <td rowspan="2" class="align-middle">5</td>
+                      <td>Portfolio</td>
+                      <td>100%</td>
+                      <td class="text-muted">-</td>
+                      <td>
+                        <span class="badge bg-secondary">Not Started</span>
+                      </td>
+                    </tr>
+                    <tr class="table-light">
+                      <td>Presentation</td>
+                      <td>-</td>
+                      <td class="text-muted">-</td>
+                      <td>
+                        <span class="badge bg-secondary">Not Started</span>
+                      </td>
+                    </tr>
+                    <tr class="table-light">
+                      <td rowspan="2" class="align-middle">
+                        Framework Project 1 (FP1)
+                      </td>
+                      <td rowspan="2" class="align-middle">7.5</td>
+                      <td>Portfolio</td>
+                      <td>80%</td>
+                      <td class="text-muted">-</td>
+                      <td>
+                        <span class="badge bg-secondary">Not Started</span>
+                      </td>
+                    </tr>
+                    <tr class="table-light">
+                      <td>Presentation</td>
+                      <td>20%</td>
+                      <td class="text-muted">-</td>
+                      <td>
+                        <span class="badge bg-secondary">Not Started</span>
+                      </td>
+                    </tr>
+
+                    <!-- Quarter 4 -->
+                    <tr>
+                      <td rowspan="4" class="align-middle fw-bold">Q4</td>
+                      <td rowspan="2" class="align-middle">
+                        Framework Development 2 (FD2)
+                      </td>
+                      <td rowspan="2" class="align-middle">5</td>
+                      <td>Portfolio</td>
+                      <td>100%</td>
+                      <td class="text-muted">-</td>
+                      <td>
+                        <span class="badge bg-secondary">Not Started</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Presentation</td>
+                      <td>-</td>
+                      <td class="text-muted">-</td>
+                      <td>
+                        <span class="badge bg-secondary">Not Started</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td rowspan="2" class="align-middle">
+                        Framework Project 2 (FP2)
+                      </td>
+                      <td rowspan="2" class="align-middle">7.5</td>
+                      <td>Portfolio</td>
+                      <td>80%</td>
+                      <td class="text-muted">-</td>
+                      <td>
+                        <span class="badge bg-secondary">Not Started</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Presentation</td>
+                      <td>20%</td>
+                      <td class="text-muted">-</td>
+                      <td>
+                        <span class="badge bg-secondary">Not Started</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tfoot class="table-primary">
+                    <tr>
+                      <th colspan="2">Total Credits</th>
+                      <th>60 EC</th>
+                      <th colspan="2">Earned Credits</th>
+                      <th>15 EC</th>
+                      <th>25% Complete</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </section>
+
+            <!-- Legend -->
+            <section class="mb-4">
+              <h4 class="h5 mb-3">Legend</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-success me-2">Passed</span>
+                    <span>Grade ≥ 5.5 and completed</span>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="d-flex align-items-center mb-2">
+                      <span class="badge bg-danger me-2">Failed</span>
+                      <span>Grade ≤ 5.5 and failed</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-primary me-2">Upcoming</span>
+                    <span>Scheduled for future</span>
+                  </div>
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-secondary me-2">Not Started</span>
+                    <span>Not yet begun</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-warning me-2">In Progress</span>
+                    <span>Currently working on</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <!-- Aside Menu -->
+        <aside class="col-lg-3 col-md-4 bg-light py-4">
+          <div class="sticky-top" style="top: 100px">
+            <h4 class="h5 mb-3">Useful Links</h4>
+            <div class="list-group">
+              <a
+                href="https://hz.nl/uploads/documents/1.4-Over-HZ/1.4.3-Regelingen-en-documenten/OERS/2023-2024/Juli/CER-HZ-Bachelor-full-time-2023-2024-DEF-version-20230720.pdf"
+                class="list-group-item list-group-item-action"
+                target="_blank"
+              >
+                <i class="bi bi-file-text me-2"></i>HZ Course and Examination
+                Regulations
+              </a>
+              <a
+                href="https://hz.nl/uploads/documents/1.4-Over-HZ/1.4.3-Regelingen-en-documenten/OERS/2023-2024/Juli/TWE/IR-B-HBO-ICT-full-time-2023-2024-DEF.pdf"
+                class="list-group-item list-group-item-action"
+                target="_blank"
+              >
+                <i class="bi bi-file-text me-2"></i>Implementation Regulations
+                HBO-ICT
+              </a>
+              <a
+                href="https://learn.hz.nl"
+                class="list-group-item list-group-item-action"
+                target="_blank"
+              >
+                <i class="bi bi-mortarboard me-2"></i>Learn Environment
+              </a>
+              <a
+                href="https://portal.hz.nl"
+                class="list-group-item list-group-item-action"
+                target="_blank"
+              >
+                <i class="bi bi-person-circle me-2"></i>MyHZ Portal
+              </a>
+              <a
+                href="https://github.com/HZ-HBO-ICT"
+                class="list-group-item list-group-item-action"
+                target="_blank"
+              >
+                <i class="bi bi-github me-2"></i>HZ HBO-ICT GitHub
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p>
+              &copy; 2024 My ICT Portfolio. Created for the PCO course at HZ
+              University.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p>Built with HTML, CSS, and Bootstrap</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Dashboard Toast Notification Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toast = document.getElementById("dashboardToast");
+        const progressBar = document.getElementById("dashboardToastProgress");
+        const countdown = document.getElementById("dashboardCountdown");
+        const bsToast = new bootstrap.Toast(toast, {
+          autohide: false, // We'll handle auto-hide manually
+        });
+
+        let timeLeft = 15;
+        let progressInterval;
+        let countdownInterval;
+        let hasShown = false;
+
+        function showToast() {
+          if (hasShown) return;
+          hasShown = true;
+
+          bsToast.show();
+
+          // Start progress bar animation
+          progressInterval = setInterval(function () {
+            const progress = ((15 - timeLeft) / 15) * 100;
+            progressBar.style.width = progress + "%";
+          }, 100);
+
+          // Start countdown
+          countdownInterval = setInterval(function () {
+            timeLeft--;
+            countdown.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+              clearInterval(progressInterval);
+              clearInterval(countdownInterval);
+              bsToast.hide();
+            }
+          }, 1000);
+        }
+
+        // Show toast on page load after a short delay
+        setTimeout(showToast, 1000);
+
+        // Also show toast on first interaction with dashboard elements
+        const dashboardElements = document.querySelectorAll(
+          ".card, .progress, .btn, .list-group-item"
+        );
+        dashboardElements.forEach((element) => {
+          element.addEventListener("mouseenter", showToast, { once: true });
+          element.addEventListener("click", showToast, { once: true });
+        });
+
+        // Clean up intervals when toast is manually dismissed
+        toast.addEventListener("hidden.bs.toast", function () {
+          clearInterval(progressInterval);
+          clearInterval(countdownInterval);
+        });
+      });
+    </script>
+  </body>
+</html>

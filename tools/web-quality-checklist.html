@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Quality Assurance Checklist Tool</title>
+    <meta
+      name="description"
+      content="Comprehensive HTML-based web page quality assurance checklist tool for evaluating websites against professional standards"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <style>
+      :root {
+        --primary-color: #0d6efd;
+        --success-color: #198754;
+        --warning-color: #ffc107;
+        --danger-color: #dc3545;
+        --light-bg: #f8f9fa;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background-color: var(--light-bg);
+      }
+
+      .header-section {
+        background: linear-gradient(135deg, var(--primary-color), #0056b3);
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+
+      .checklist-category {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        overflow: hidden;
+      }
+
+      .category-header {
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem 1.5rem;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .category-progress {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      .checklist-item {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #e9ecef;
+        transition: background-color 0.2s;
+      }
+
+      .checklist-item:last-child {
+        border-bottom: none;
+      }
+
+      .checklist-item:hover {
+        background-color: #f8f9fa;
+      }
+
+      .item-controls {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .status-radio {
+        margin-right: 0.5rem;
+      }
+
+      .score-summary {
+        position: sticky;
+        top: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+      }
+
+      .score-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto 1rem;
+      }
+
+      .score-excellent {
+        background: var(--success-color);
+        color: white;
+      }
+      .score-good {
+        background: #28a745;
+        color: white;
+      }
+      .score-fair {
+        background: var(--warning-color);
+        color: black;
+      }
+      .score-poor {
+        background: var(--danger-color);
+        color: white;
+      }
+
+      .notes-textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+
+      .action-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      .btn-floating {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      @media print {
+        .action-buttons,
+        .no-print {
+          display: none !important;
+        }
+        .checklist-category {
+          break-inside: avoid;
+        }
+        body {
+          background: white;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .action-buttons {
+          position: relative;
+          bottom: auto;
+          right: auto;
+          margin-top: 2rem;
+        }
+
+        .btn-floating {
+          width: 100%;
+          height: auto;
+          border-radius: 5px;
+          padding: 0.75rem;
+          margin-bottom: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <h1 class="display-5 fw-bold mb-2">
+              <i class="bi bi-clipboard-check me-3"></i>
+              Web Quality Assurance Checklist
+            </h1>
+            <p class="lead mb-0">
+              Comprehensive evaluation tool for professional web standards and
+              best practices
+            </p>
+          </div>
+          <div class="col-md-4 text-md-end">
+            <div class="d-flex flex-column align-items-md-end">
+              <div class="badge bg-light text-dark fs-6 mb-2">
+                <i class="bi bi-calendar3 me-1"></i>
+                <span id="current-date"></span>
+              </div>
+              <div class="badge bg-warning text-dark fs-6">
+                <i class="bi bi-stopwatch me-1"></i>
+                <span id="timer">00:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Checklist Content -->
+        <div class="col-lg-8">
+          <!-- Instructions -->
+          <div class="alert alert-info mb-4">
+            <h5 class="alert-heading">
+              <i class="bi bi-info-circle me-2"></i>How to Use This Tool
+            </h5>
+            <p class="mb-2">
+              Evaluate each criterion by selecting <strong>Pass</strong>,
+              <strong>Fail</strong>, or <strong>N/A</strong> (Not Applicable).
+              Add notes for failed items or additional observations. Your
+              progress is automatically saved.
+            </p>
+            <hr />
+            <p class="mb-0">
+              <strong>Scoring:</strong> 90-100% = Excellent | 80-89% = Good |
+              70-79% = Fair | Below 70% = Needs Improvement
+            </p>
+          </div>
+
+          <!-- Website Information -->
+          <div class="checklist-category">
+            <div class="category-header">
+              <h3 class="mb-0">
+                <i class="bi bi-globe me-2"></i>Website Information
+              </h3>
+            </div>
+            <div class="checklist-item">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="website-url" class="form-label"
+                    >Website URL</label
+                  >
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="website-url"
+                    placeholder="https://example.com"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="website-name" class="form-label"
+                    >Website Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="website-name"
+                    placeholder="Website Name"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="evaluator-name" class="form-label"
+                    >Evaluator Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="evaluator-name"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="evaluation-purpose" class="form-label"
+                    >Evaluation Purpose</label
+                  >
+                  <select class="form-select" id="evaluation-purpose">
+                    <option value="">Select Purpose</option>
+                    <option value="initial-review">Initial Review</option>
+                    <option value="redesign-audit">Redesign Audit</option>
+                    <option value="accessibility-check">
+                      Accessibility Check
+                    </option>
+                    <option value="performance-review">
+                      Performance Review
+                    </option>
+                    <option value="compliance-audit">Compliance Audit</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 1: Visual Consistency & Design -->
+          <div class="checklist-category" data-category="visual-design">
+            <div class="category-header">
+              <h3 class="mb-0">
+                <i class="bi bi-palette me-2"></i>Visual Consistency & Design
+              </h3>
+              <span class="category-progress">0/8 completed</span>
+            </div>
+
+            <div class="checklist-item" data-item="uniform-formatting">
+              <h6 class="fw-bold">
+                Uniform formatting across similar elements
+              </h6>
+              <p class="text-muted mb-2">
+                All similar elements (buttons, cards, forms, etc.) follow
+                consistent styling patterns
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="uniform-formatting"
+                    id="uniform-formatting-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="uniform-formatting-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="uniform-formatting"
+                    id="uniform-formatting-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="uniform-formatting-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="uniform-formatting"
+                    id="uniform-formatting-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="uniform-formatting-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="uniform-formatting"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="color-scheme">
+              <h6 class="fw-bold">Consistent color scheme and typography</h6>
+              <p class="text-muted mb-2">
+                Colors, fonts, and text styles are consistent throughout the
+                website
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="color-scheme"
+                    id="color-scheme-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="color-scheme-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="color-scheme"
+                    id="color-scheme-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="color-scheme-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="color-scheme"
+                    id="color-scheme-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="color-scheme-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="color-scheme"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="spacing-alignment">
+              <h6 class="fw-bold">Proper spacing and alignment</h6>
+              <p class="text-muted mb-2">
+                Elements are properly spaced and aligned, creating visual
+                harmony
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="spacing-alignment"
+                    id="spacing-alignment-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="spacing-alignment-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="spacing-alignment"
+                    id="spacing-alignment-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="spacing-alignment-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="spacing-alignment"
+                    id="spacing-alignment-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="spacing-alignment-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="spacing-alignment"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="brand-consistency">
+              <h6 class="fw-bold">Brand consistency throughout</h6>
+              <p class="text-muted mb-2">
+                Logo, colors, and brand elements are consistently applied
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="brand-consistency"
+                    id="brand-consistency-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="brand-consistency-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="brand-consistency"
+                    id="brand-consistency-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="brand-consistency-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="brand-consistency"
+                    id="brand-consistency-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="brand-consistency-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="brand-consistency"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="visual-hierarchy">
+              <h6 class="fw-bold">Clear visual hierarchy</h6>
+              <p class="text-muted mb-2">
+                Important elements stand out and content flows logically
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="visual-hierarchy"
+                    id="visual-hierarchy-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="visual-hierarchy-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="visual-hierarchy"
+                    id="visual-hierarchy-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="visual-hierarchy-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="visual-hierarchy"
+                    id="visual-hierarchy-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="visual-hierarchy-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="visual-hierarchy"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="image-quality">
+              <h6 class="fw-bold">High-quality images and graphics</h6>
+              <p class="text-muted mb-2">
+                Images are crisp, properly sized, and enhance the content
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="image-quality"
+                    id="image-quality-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="image-quality-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="image-quality"
+                    id="image-quality-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="image-quality-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="image-quality"
+                    id="image-quality-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="image-quality-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="image-quality"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="white-space">
+              <h6 class="fw-bold">Effective use of white space</h6>
+              <p class="text-muted mb-2">
+                Content is not cramped and has appropriate breathing room
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="white-space"
+                    id="white-space-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="white-space-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="white-space"
+                    id="white-space-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="white-space-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="white-space"
+                    id="white-space-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="white-space-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="white-space"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="responsive-design-visual">
+              <h6 class="fw-bold">
+                Visual elements adapt to different screen sizes
+              </h6>
+              <p class="text-muted mb-2">
+                Design maintains visual appeal across desktop, tablet, and
+                mobile
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="responsive-design-visual"
+                    id="responsive-design-visual-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="responsive-design-visual-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="responsive-design-visual"
+                    id="responsive-design-visual-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="responsive-design-visual-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="responsive-design-visual"
+                    id="responsive-design-visual-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="responsive-design-visual-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="responsive-design-visual"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Category 2: Accessibility Standards -->
+          <div class="checklist-category" data-category="accessibility">
+            <div class="category-header">
+              <h3 class="mb-0">
+                <i class="bi bi-universal-access me-2"></i>Accessibility
+                Standards (WCAG)
+              </h3>
+              <span class="category-progress">0/7 completed</span>
+            </div>
+
+            <div class="checklist-item" data-item="alt-text">
+              <h6 class="fw-bold">Alt text for images</h6>
+              <p class="text-muted mb-2">
+                All images have descriptive alt text for screen readers
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="alt-text"
+                    id="alt-text-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="alt-text-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="alt-text"
+                    id="alt-text-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="alt-text-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="alt-text"
+                    id="alt-text-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="alt-text-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="alt-text"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="heading-hierarchy">
+              <h6 class="fw-bold">
+                Proper heading hierarchy (h1, h2, h3, etc.)
+              </h6>
+              <p class="text-muted mb-2">
+                Headings are used in logical order and structure content
+                properly
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="heading-hierarchy"
+                    id="heading-hierarchy-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="heading-hierarchy-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="heading-hierarchy"
+                    id="heading-hierarchy-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="heading-hierarchy-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="heading-hierarchy"
+                    id="heading-hierarchy-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="heading-hierarchy-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="heading-hierarchy"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="color-contrast">
+              <h6 class="fw-bold">Sufficient color contrast ratios</h6>
+              <p class="text-muted mb-2">
+                Text has adequate contrast against background colors (WCAG AA:
+                4.5:1 for normal text)
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="color-contrast"
+                    id="color-contrast-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="color-contrast-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="color-contrast"
+                    id="color-contrast-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="color-contrast-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="color-contrast"
+                    id="color-contrast-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="color-contrast-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="color-contrast"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="keyboard-navigation">
+              <h6 class="fw-bold">Keyboard navigation support</h6>
+              <p class="text-muted mb-2">
+                All interactive elements can be accessed and used with keyboard
+                only
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="keyboard-navigation"
+                    id="keyboard-navigation-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="keyboard-navigation-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="keyboard-navigation"
+                    id="keyboard-navigation-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="keyboard-navigation-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="keyboard-navigation"
+                    id="keyboard-navigation-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="keyboard-navigation-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="keyboard-navigation"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="screen-reader">
+              <h6 class="fw-bold">Screen reader compatibility</h6>
+              <p class="text-muted mb-2">
+                Content is properly structured for screen readers with ARIA
+                labels where needed
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="screen-reader"
+                    id="screen-reader-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="screen-reader-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="screen-reader"
+                    id="screen-reader-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="screen-reader-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="screen-reader"
+                    id="screen-reader-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="screen-reader-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="screen-reader"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="focus-indicators">
+              <h6 class="fw-bold">Visible focus indicators</h6>
+              <p class="text-muted mb-2">
+                Interactive elements show clear focus states when navigated with
+                keyboard
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="focus-indicators"
+                    id="focus-indicators-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="focus-indicators-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="focus-indicators"
+                    id="focus-indicators-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="focus-indicators-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="focus-indicators"
+                    id="focus-indicators-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="focus-indicators-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="focus-indicators"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="form-labels">
+              <h6 class="fw-bold">Proper form labels and instructions</h6>
+              <p class="text-muted mb-2">
+                All form fields have clear labels and error messages are
+                descriptive
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="form-labels"
+                    id="form-labels-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="form-labels-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="form-labels"
+                    id="form-labels-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="form-labels-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="form-labels"
+                    id="form-labels-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="form-labels-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="form-labels"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="text-resize">
+              <h6 class="fw-bold">Text can be resized up to 200%</h6>
+              <p class="text-muted mb-2">
+                Content remains usable when text is enlarged to 200% without
+                horizontal scrolling
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="text-resize"
+                    id="text-resize-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="text-resize-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="text-resize"
+                    id="text-resize-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="text-resize-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="text-resize"
+                    id="text-resize-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="text-resize-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="text-resize"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Category 3: Responsive Design -->
+          <div class="checklist-category" data-category="responsive">
+            <div class="category-header">
+              <h3 class="mb-0">
+                <i class="bi bi-phone me-2"></i>Responsive Design
+              </h3>
+              <span class="category-progress">0/6 completed</span>
+            </div>
+
+            <div class="checklist-item" data-item="mobile-first">
+              <h6 class="fw-bold">Mobile-first approach</h6>
+              <p class="text-muted mb-2">
+                Design works well on mobile devices and scales up appropriately
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="mobile-first"
+                    id="mobile-first-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="mobile-first-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="mobile-first"
+                    id="mobile-first-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="mobile-first-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="mobile-first"
+                    id="mobile-first-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="mobile-first-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="mobile-first"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="breakpoint-handling">
+              <h6 class="fw-bold">Proper breakpoint handling</h6>
+              <p class="text-muted mb-2">
+                Layout adapts smoothly across different screen sizes and
+                orientations
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="breakpoint-handling"
+                    id="breakpoint-handling-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="breakpoint-handling-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="breakpoint-handling"
+                    id="breakpoint-handling-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="breakpoint-handling-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="breakpoint-handling"
+                    id="breakpoint-handling-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="breakpoint-handling-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="breakpoint-handling"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="touch-friendly">
+              <h6 class="fw-bold">Touch-friendly interface elements</h6>
+              <p class="text-muted mb-2">
+                Buttons and interactive elements are appropriately sized for
+                touch interaction (minimum 44px)
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="touch-friendly"
+                    id="touch-friendly-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="touch-friendly-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="touch-friendly"
+                    id="touch-friendly-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="touch-friendly-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="touch-friendly"
+                    id="touch-friendly-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="touch-friendly-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="touch-friendly"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="flexible-grid">
+              <h6 class="fw-bold">Flexible grid layouts</h6>
+              <p class="text-muted mb-2">
+                Content reflows appropriately using flexible grid systems
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="flexible-grid"
+                    id="flexible-grid-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="flexible-grid-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="flexible-grid"
+                    id="flexible-grid-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="flexible-grid-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="flexible-grid"
+                    id="flexible-grid-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="flexible-grid-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="flexible-grid"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="viewport-meta">
+              <h6 class="fw-bold">Proper viewport meta tag</h6>
+              <p class="text-muted mb-2">
+                Viewport meta tag is correctly configured for responsive
+                behavior
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="viewport-meta"
+                    id="viewport-meta-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="viewport-meta-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="viewport-meta"
+                    id="viewport-meta-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="viewport-meta-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="viewport-meta"
+                    id="viewport-meta-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="viewport-meta-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="viewport-meta"
+              ></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="responsive-images">
+              <h6 class="fw-bold">Responsive images and media</h6>
+              <p class="text-muted mb-2">
+                Images scale appropriately and use responsive techniques
+                (srcset, picture element)
+              </p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="responsive-images"
+                    id="responsive-images-pass"
+                    value="pass"
+                  />
+                  <label
+                    class="btn btn-outline-success btn-sm"
+                    for="responsive-images-pass"
+                  >
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="responsive-images"
+                    id="responsive-images-fail"
+                    value="fail"
+                  />
+                  <label
+                    class="btn btn-outline-danger btn-sm"
+                    for="responsive-images-fail"
+                  >
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="responsive-images"
+                    id="responsive-images-na"
+                    value="na"
+                  />
+                  <label
+                    class="btn btn-outline-secondary btn-sm"
+                    for="responsive-images-na"
+                    >N/A</label
+                  >
+                </div>
+              </div>
+              <textarea
+                class="form-control notes-textarea mt-2"
+                placeholder="Add notes for failed items or observations..."
+                data-notes="responsive-images"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Category 4: Content Quality -->
+          <div class="checklist-category" data-category="content">
+            <div class="category-header">
+              <h3 class="mb-0">
+                <i class="bi bi-file-text me-2"></i>Content Quality
+              </h3>
+              <span class="category-progress">0/5 completed</span>
+            </div>
+
+            <div class="checklist-item" data-item="clear-writing">
+              <h6 class="fw-bold">Clear, concise writing</h6>
+              <p class="text-muted mb-2">Content is well-written, easy to understand, and free of jargon</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="clear-writing" id="clear-writing-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="clear-writing-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="clear-writing" id="clear-writing-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="clear-writing-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="clear-writing" id="clear-writing-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="clear-writing-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="clear-writing"></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="grammar-spelling">
+              <h6 class="fw-bold">Proper grammar and spelling</h6>
+              <p class="text-muted mb-2">Content is free of grammatical errors and spelling mistakes</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="grammar-spelling" id="grammar-spelling-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="grammar-spelling-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="grammar-spelling" id="grammar-spelling-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="grammar-spelling-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="grammar-spelling" id="grammar-spelling-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="grammar-spelling-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="grammar-spelling"></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="information-hierarchy">
+              <h6 class="fw-bold">Logical information hierarchy</h6>
+              <p class="text-muted mb-2">Content is organized in a logical flow with clear sections and subsections</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="information-hierarchy" id="information-hierarchy-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="information-hierarchy-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="information-hierarchy" id="information-hierarchy-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="information-hierarchy-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="information-hierarchy" id="information-hierarchy-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="information-hierarchy-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="information-hierarchy"></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="updated-information">
+              <h6 class="fw-bold">Up-to-date information</h6>
+              <p class="text-muted mb-2">Content is current, relevant, and regularly updated</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="updated-information" id="updated-information-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="updated-information-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="updated-information" id="updated-information-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="updated-information-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="updated-information" id="updated-information-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="updated-information-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="updated-information"></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="content-relevance">
+              <h6 class="fw-bold">Content relevance and value</h6>
+              <p class="text-muted mb-2">Content provides value to users and is relevant to the website's purpose</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="content-relevance" id="content-relevance-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="content-relevance-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="content-relevance" id="content-relevance-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="content-relevance-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="content-relevance" id="content-relevance-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="content-relevance-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="content-relevance"></textarea>
+            </div>
+          </div>
+
+          <!-- Category 5: Navigation & Usability -->
+          <div class="checklist-category" data-category="navigation">
+            <div class="category-header">
+              <h3 class="mb-0">
+                <i class="bi bi-compass me-2"></i>Navigation & Usability
+              </h3>
+              <span class="category-progress">0/5 completed</span>
+            </div>
+
+            <div class="checklist-item" data-item="intuitive-menu">
+              <h6 class="fw-bold">Intuitive menu structure</h6>
+              <p class="text-muted mb-2">Navigation is logical, easy to understand, and follows common conventions</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="intuitive-menu" id="intuitive-menu-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="intuitive-menu-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="intuitive-menu" id="intuitive-menu-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="intuitive-menu-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="intuitive-menu" id="intuitive-menu-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="intuitive-menu-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="intuitive-menu"></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="clear-cta">
+              <h6 class="fw-bold">Clear call-to-action buttons</h6>
+              <p class="text-muted mb-2">CTAs are prominent, clearly labeled, and guide users effectively</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="clear-cta" id="clear-cta-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="clear-cta-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="clear-cta" id="clear-cta-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="clear-cta-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="clear-cta" id="clear-cta-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="clear-cta-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="clear-cta"></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="breadcrumb-navigation">
+              <h6 class="fw-bold">Breadcrumb navigation (where appropriate)</h6>
+              <p class="text-muted mb-2">Breadcrumbs help users understand their location within the site hierarchy</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="breadcrumb-navigation" id="breadcrumb-navigation-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="breadcrumb-navigation-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="breadcrumb-navigation" id="breadcrumb-navigation-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="breadcrumb-navigation-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="breadcrumb-navigation" id="breadcrumb-navigation-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="breadcrumb-navigation-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="breadcrumb-navigation"></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="search-functionality">
+              <h6 class="fw-bold">Search functionality (if applicable)</h6>
+              <p class="text-muted mb-2">Search feature is easily accessible and provides relevant results</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="search-functionality" id="search-functionality-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="search-functionality-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="search-functionality" id="search-functionality-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="search-functionality-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="search-functionality" id="search-functionality-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="search-functionality-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="search-functionality"></textarea>
+            </div>
+
+            <div class="checklist-item" data-item="error-handling">
+              <h6 class="fw-bold">Proper error handling and 404 pages</h6>
+              <p class="text-muted mb-2">Error pages are helpful and guide users back to working content</p>
+              <div class="item-controls">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check" name="error-handling" id="error-handling-pass" value="pass">
+                  <label class="btn btn-outline-success btn-sm" for="error-handling-pass">
+                    <i class="bi bi-check-lg"></i> Pass
+                  </label>
+                  <input type="radio" class="btn-check" name="error-handling" id="error-handling-fail" value="fail">
+                  <label class="btn btn-outline-danger btn-sm" for="error-handling-fail">
+                    <i class="bi bi-x-lg"></i> Fail
+                  </label>
+                  <input type="radio" class="btn-check" name="error-handling" id="error-handling-na" value="na">
+                  <label class="btn btn-outline-secondary btn-sm" for="error-handling-na">N/A</label>
+                </div>
+              </div>
+              <textarea class="form-control notes-textarea mt-2" placeholder="Add notes for failed items or observations..." data-notes="error-handling"></textarea>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons no-print">
+            <button
+              class="btn btn-primary btn-floating"
+              onclick="window.print()"
+              title="Print Report"
+            >
+              <i class="bi bi-printer"></i>
+            </button>
+            <button
+              class="btn btn-success btn-floating"
+              onclick="exportResults()"
+              title="Export Results"
+            >
+              <i class="bi bi-download"></i>
+            </button>
+            <button
+              class="btn btn-warning btn-floating"
+              onclick="saveProgress()"
+              title="Save Progress"
+            >
+              <i class="bi bi-save"></i>
+            </button>
+            <button
+              class="btn btn-danger btn-floating"
+              onclick="resetChecklist()"
+              title="Reset All"
+            >
+              <i class="bi bi-arrow-clockwise"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Score Summary Sidebar -->
+        <div class="col-lg-4">
+          <div class="score-summary">
+            <h4 class="text-center mb-3">
+              <i class="bi bi-graph-up me-2"></i>Quality Score
+            </h4>
+            <div class="score-circle score-poor" id="score-circle">
+              <span id="score-percentage">0%</span>
+            </div>
+            <div class="text-center mb-3">
+              <span id="score-status" class="badge bg-secondary fs-6">Not Started</span>
+            </div>
+
+            <div class="progress mb-3" style="height: 10px;">
+              <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%"></div>
+            </div>
+
+            <div class="row text-center">
+              <div class="col-4">
+                <div class="text-success fw-bold fs-5" id="passed-count">0</div>
+                <small class="text-muted">Passed</small>
+              </div>
+              <div class="col-4">
+                <div class="text-danger fw-bold fs-5" id="failed-count">0</div>
+                <small class="text-muted">Failed</small>
+              </div>
+              <div class="col-4">
+                <div class="text-secondary fw-bold fs-5" id="na-count">0</div>
+                <small class="text-muted">N/A</small>
+              </div>
+            </div>
+
+            <hr>
+
+            <h5 class="mb-3">Category Progress</h5>
+            <div id="category-progress">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small">Visual Design</span>
+                <span class="badge bg-light text-dark" id="visual-design-progress">0/8</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small">Accessibility</span>
+                <span class="badge bg-light text-dark" id="accessibility-progress">0/7</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small">Responsive Design</span>
+                <span class="badge bg-light text-dark" id="responsive-progress">0/6</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small">Content Quality</span>
+                <span class="badge bg-light text-dark" id="content-progress">0/5</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small">Navigation & Usability</span>
+                <span class="badge bg-light text-dark" id="navigation-progress">0/5</span>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="d-grid gap-2">
+              <button class="btn btn-outline-primary btn-sm" onclick="generateSummary()">
+                <i class="bi bi-file-text me-1"></i>Generate Summary
+              </button>
+              <button class="btn btn-outline-secondary btn-sm" onclick="loadProgress()">
+                <i class="bi bi-upload me-1"></i>Load Saved Progress
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Global variables
+        let startTime = new Date();
+        let timerInterval;
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+            loadSavedData();
+            startTimer();
+        });
+
+        function initializeApp() {
+            // Set current date
+            document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+
+            // Add event listeners to all radio buttons
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', updateScores);
+            });
+
+            // Add event listeners to text inputs for auto-save
+            const textInputs = document.querySelectorAll('input[type="text"], input[type="url"], select, textarea');
+            textInputs.forEach(input => {
+                input.addEventListener('input', saveToLocalStorage);
+            });
+
+            // Initial score calculation
+            updateScores();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                const now = new Date();
+                const elapsed = Math.floor((now - startTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                document.getElementById('timer').textContent =
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function updateScores() {
+            const categories = {
+                'visual-design': 8,
+                'accessibility': 7,
+                'responsive': 6,
+                'content': 5,
+                'navigation': 5
+            };
+
+            let totalPassed = 0;
+            let totalFailed = 0;
+            let totalNA = 0;
+            let totalItems = 0;
+
+            // Calculate scores for each category
+            Object.keys(categories).forEach(category => {
+                const categoryElement = document.querySelector(`[data-category="${category}"]`);
+                const items = categoryElement.querySelectorAll('[data-item]');
+
+                let categoryPassed = 0;
+                let categoryFailed = 0;
+                let categoryNA = 0;
+
+                items.forEach(item => {
+                    const itemName = item.getAttribute('data-item');
+                    const checkedRadio = document.querySelector(`input[name="${itemName}"]:checked`);
+
+                    if (checkedRadio) {
+                        switch(checkedRadio.value) {
+                            case 'pass':
+                                categoryPassed++;
+                                totalPassed++;
+                                break;
+                            case 'fail':
+                                categoryFailed++;
+                                totalFailed++;
+                                break;
+                            case 'na':
+                                categoryNA++;
+                                totalNA++;
+                                break;
+                        }
+                    }
+                });
+
+                // Update category progress
+                const completed = categoryPassed + categoryFailed + categoryNA;
+                const progressElement = document.getElementById(`${category}-progress`);
+                if (progressElement) {
+                    progressElement.textContent = `${completed}/${categories[category]}`;
+                }
+
+                // Update category header progress
+                const headerProgress = categoryElement.querySelector('.category-progress');
+                if (headerProgress) {
+                    headerProgress.textContent = `${completed}/${categories[category]} completed`;
+                }
+            });
+
+            totalItems = Object.values(categories).reduce((a, b) => a + b, 0);
+
+            // Calculate overall score (excluding N/A items)
+            const applicableItems = totalPassed + totalFailed;
+            const scorePercentage = applicableItems > 0 ? Math.round((totalPassed / applicableItems) * 100) : 0;
+
+            // Update score display
+            updateScoreDisplay(scorePercentage, totalPassed, totalFailed, totalNA, totalItems);
+
+            // Save to localStorage
+            saveToLocalStorage();
+        }
+
+        function updateScoreDisplay(percentage, passed, failed, na, total) {
+            const scoreCircle = document.getElementById('score-circle');
+            const scorePercentageElement = document.getElementById('score-percentage');
+            const scoreStatus = document.getElementById('score-status');
+            const progressBar = document.getElementById('progress-bar');
+
+            // Update percentage
+            scorePercentageElement.textContent = `${percentage}%`;
+
+            // Update progress bar
+            const completionPercentage = Math.round(((passed + failed + na) / total) * 100);
+            progressBar.style.width = `${completionPercentage}%`;
+
+            // Update score circle color and status
+            scoreCircle.className = 'score-circle';
+            if (percentage >= 90) {
+                scoreCircle.classList.add('score-excellent');
+                scoreStatus.className = 'badge bg-success fs-6';
+                scoreStatus.textContent = 'Excellent';
+                progressBar.className = 'progress-bar bg-success';
+            } else if (percentage >= 80) {
+                scoreCircle.classList.add('score-good');
+                scoreStatus.className = 'badge bg-success fs-6';
+                scoreStatus.textContent = 'Good';
+                progressBar.className = 'progress-bar bg-success';
+            } else if (percentage >= 70) {
+                scoreCircle.classList.add('score-fair');
+                scoreStatus.className = 'badge bg-warning fs-6';
+                scoreStatus.textContent = 'Fair';
+                progressBar.className = 'progress-bar bg-warning';
+            } else if (percentage > 0) {
+                scoreCircle.classList.add('score-poor');
+                scoreStatus.className = 'badge bg-danger fs-6';
+                scoreStatus.textContent = 'Needs Improvement';
+                progressBar.className = 'progress-bar bg-danger';
+            } else {
+                scoreCircle.classList.add('score-poor');
+                scoreStatus.className = 'badge bg-secondary fs-6';
+                scoreStatus.textContent = 'Not Started';
+                progressBar.className = 'progress-bar bg-secondary';
+            }
+
+            // Update counts
+            document.getElementById('passed-count').textContent = passed;
+            document.getElementById('failed-count').textContent = failed;
+            document.getElementById('na-count').textContent = na;
+        }
+
+        function saveToLocalStorage() {
+            const data = {
+                timestamp: new Date().toISOString(),
+                websiteInfo: {
+                    url: document.getElementById('website-url')?.value || '',
+                    name: document.getElementById('website-name')?.value || '',
+                    evaluator: document.getElementById('evaluator-name')?.value || '',
+                    purpose: document.getElementById('evaluation-purpose')?.value || ''
+                },
+                responses: {},
+                notes: {}
+            };
+
+            // Save all radio button responses
+            const radioButtons = document.querySelectorAll('input[type="radio"]:checked');
+            radioButtons.forEach(radio => {
+                data.responses[radio.name] = radio.value;
+            });
+
+            // Save all notes
+            const noteTextareas = document.querySelectorAll('textarea[data-notes]');
+            noteTextareas.forEach(textarea => {
+                const notesKey = textarea.getAttribute('data-notes');
+                data.notes[notesKey] = textarea.value;
+            });
+
+            localStorage.setItem('webQualityChecklist', JSON.stringify(data));
+        }
+
+        function loadSavedData() {
+            const savedData = localStorage.getItem('webQualityChecklist');
+            if (!savedData) return;
+
+            try {
+                const data = JSON.parse(savedData);
+
+                // Load website info
+                if (data.websiteInfo) {
+                    const urlInput = document.getElementById('website-url');
+                    const nameInput = document.getElementById('website-name');
+                    const evaluatorInput = document.getElementById('evaluator-name');
+                    const purposeSelect = document.getElementById('evaluation-purpose');
+
+                    if (urlInput) urlInput.value = data.websiteInfo.url || '';
+                    if (nameInput) nameInput.value = data.websiteInfo.name || '';
+                    if (evaluatorInput) evaluatorInput.value = data.websiteInfo.evaluator || '';
+                    if (purposeSelect) purposeSelect.value = data.websiteInfo.purpose || '';
+                }
+
+                // Load responses
+                if (data.responses) {
+                    Object.keys(data.responses).forEach(name => {
+                        const radio = document.querySelector(`input[name="${name}"][value="${data.responses[name]}"]`);
+                        if (radio) radio.checked = true;
+                    });
+                }
+
+                // Load notes
+                if (data.notes) {
+                    Object.keys(data.notes).forEach(notesKey => {
+                        const textarea = document.querySelector(`textarea[data-notes="${notesKey}"]`);
+                        if (textarea) textarea.value = data.notes[notesKey];
+                    });
+                }
+
+                updateScores();
+            } catch (error) {
+                console.error('Error loading saved data:', error);
+            }
+        }
+
+        function resetChecklist() {
+            if (confirm('Are you sure you want to reset all data? This action cannot be undone.')) {
+                // Clear all radio buttons
+                const radioButtons = document.querySelectorAll('input[type="radio"]');
+                radioButtons.forEach(radio => radio.checked = false);
+
+                // Clear all text inputs and textareas
+                const inputs = document.querySelectorAll('input[type="text"], input[type="url"], select, textarea');
+                inputs.forEach(input => input.value = '');
+
+                // Clear localStorage
+                localStorage.removeItem('webQualityChecklist');
+
+                // Reset timer
+                startTime = new Date();
+
+                // Update scores
+                updateScores();
+
+                alert('Checklist has been reset successfully.');
+            }
+        }
+
+        function saveProgress() {
+            saveToLocalStorage();
+            alert('Progress saved successfully!');
+        }
+
+        function loadProgress() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            localStorage.setItem('webQualityChecklist', JSON.stringify(data));
+                            location.reload();
+                        } catch (error) {
+                            alert('Error loading file. Please ensure it\'s a valid JSON file.');
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+
+        function exportResults() {
+            const data = JSON.parse(localStorage.getItem('webQualityChecklist') || '{}');
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `web-quality-checklist-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function generateSummary() {
+            const data = JSON.parse(localStorage.getItem('webQualityChecklist') || '{}');
+            let summary = `Web Quality Assessment Summary\n`;
+            summary += `Generated: ${new Date().toLocaleString()}\n`;
+            summary += `Website: ${data.websiteInfo?.name || 'N/A'} (${data.websiteInfo?.url || 'N/A'})\n`;
+            summary += `Evaluator: ${data.websiteInfo?.evaluator || 'N/A'}\n\n`;
+
+            // Add score summary
+            const scoreElement = document.getElementById('score-percentage');
+            const statusElement = document.getElementById('score-status');
+            summary += `Overall Score: ${scoreElement.textContent} - ${statusElement.textContent}\n\n`;
+
+            // Add failed items
+            summary += `Areas Needing Improvement:\n`;
+            const failedItems = [];
+            Object.keys(data.responses || {}).forEach(itemName => {
+                if (data.responses[itemName] === 'fail') {
+                    const itemElement = document.querySelector(`[data-item="${itemName}"] h6`);
+                    if (itemElement) {
+                        failedItems.push(`- ${itemElement.textContent}`);
+                        const note = data.notes?.[itemName];
+                        if (note) {
+                            failedItems.push(`  Note: ${note}`);
+                        }
+                    }
+                }
+            });
+
+            if (failedItems.length > 0) {
+                summary += failedItems.join('\n') + '\n';
+            } else {
+                summary += 'No failed items found.\n';
+            }
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(summary).then(() => {
+                alert('Summary copied to clipboard!');
+            }).catch(() => {
+                // Fallback: show in alert
+                alert(summary);
+            });
+        }
+    </script>
+  </body>
+</html>
+              <span id="score-percentage">0%</span>
+            </div>
+            <div class="text-center mb-3">
+              <span id="score-status" class="badge bg-secondary fs-6"
+                >Not Started</span
+              >
+            </div>
+
+            <div class="progress mb-3" style="height: 10px">
+              <div
+                class="progress-bar"
+                id="progress-bar"
+                role="progressbar"
+                style="width: 0%"
+              ></div>
+            </div>
+
+            <div class="row text-center">
+              <div class="col-4">
+                <div class="text-success fw-bold fs-5" id="passed-count">0</div>
+                <small class="text-muted">Passed</small>
+              </div>
+              <div class="col-4">
+                <div class="text-danger fw-bold fs-5" id="failed-count">0</div>
+                <small class="text-muted">Failed</small>
+              </div>
+              <div class="col-4">
+                <div class="text-secondary fw-bold fs-5" id="na-count">0</div>
+                <small class="text-muted">N/A</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -140,9 +140,11 @@ aside {
 }
 
 .list-group-item:hover {
-  background-color: var(--hz-primary);
+  background-color: var(--hz-primary) !important;
+  border-color: var(--hz-primary) !important;
   color: white;
   transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
 }
 
 .list-group-item i {
@@ -151,7 +153,7 @@ aside {
 
 .list-group-item:hover i {
   transform: scale(1.1);
-  color: white !important;
+  color: inherit !important;
 }
 
 /* Fix icon visibility in navigation and sidebar links */
@@ -630,29 +632,16 @@ footer p {
 }
 
 /* ===== PROFILE PAGE CHARACTERISTICS HOVER EFFECTS ===== */
-.list-group-item {
-  transition: all var(--transition-speed) ease;
-}
+/* Note: .list-group-item transition and hover effects are already defined above in ASIDE MENU STYLES section */
 
-/* Hover effects for characteristics section */
-.list-group-item:hover {
-  background-color: var(--hz-primary) !important;
-  border-color: var(--hz-primary) !important;
-  transform: translateX(5px);
-  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
-}
-
-/* Ensure all text becomes white on hover */
+/* Enhanced text and icon color handling for list group items on hover */
 .list-group-item:hover strong,
 .list-group-item:hover p,
 .list-group-item:hover .text-muted {
   color: white !important;
 }
 
-/* Maintain icon colors during hover - they should remain unchanged */
-.list-group-item:hover i {
-  color: inherit !important;
-}
+/* Note: Icon hover effects are handled in the main .list-group-item:hover i rule above */
 
 /* Specific icon color preservation on hover */
 .list-group-item:hover .text-warning {

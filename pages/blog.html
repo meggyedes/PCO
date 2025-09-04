@@ -33,8 +33,9 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
     <!-- Styling End-->
   </head>
+
   <body>
-    <!-- Navigation -->
+    <!-- Navigation Begin -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
       <div class="container">
         <a class="navbar-brand" href="../index.html">
@@ -75,15 +76,16 @@
         </div>
       </div>
     </nav>
+    <!-- Navigation End -->
 
-    <!-- Main Content -->
+    <!-- Main Content Begin -->
     <div class="container-fluid">
       <div class="row">
-        <!-- Main Content Area -->
+        <!-- Main Content Area Begin -->
         <main class="col-lg-9 col-md-8">
           <div class="container py-4">
-            <!-- Blog Header -->
-            <section class="mb-5">
+            <!-- Blog Header Begin -->
+            <section class="mb-3">
               <h1 class="display-5 fw-bold text-primary mb-3">
                 My Learning Journey
               </h1>
@@ -92,11 +94,40 @@
                 through the HBO-ICT program at HZ University.
               </p>
             </section>
+            <!-- Blog Header End -->
 
-            <!-- Blog Posts Feed -->
+            <!-- Blog Categories Begin -->
+            <section class="mt-4 mb-4">
+              <h3 class="h4 mb-3">Blog Categories</h3>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge bg-warning text-dark fs-6 py-2 px-3"
+                  ><a href="#feedback" style="color: black">Feedback</a></span
+                ><span class="badge bg-success fs-6 py-2 px-3"
+                  ><a href="#selfeAnalysis" style="color: white"
+                    >Self-Analysis</a
+                  ></span
+                >
+                <span class="badge bg-primary fs-6 py-2 px-3"
+                  ><a href="#studyChoice" style="color: white"
+                    >Study Choice</a
+                  ></span
+                >
+                <span class="badge bg-info fs-6 py-2 px-3"
+                  ><a href="#programming" style="color: white"
+                    >Programming</a
+                  ></span
+                >
+                <span class="badge bg-secondary fs-6 py-2 px-3"
+                  ><a href="#industry" style="color: white">Industry</a></span
+                >
+              </div>
+            </section>
+            <!-- Blog Categories End -->
+
+            <!-- Blog Posts Feed Begin -->
             <section>
               <!-- Blog Post 1 -->
-              <article class="card mb-4 shadow-sm">
+              <article class="card mb-4 shadow-sm" id="studyChoice">
                 <div class="card-body">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -108,7 +139,7 @@
                   </div>
                   <h2 class="card-title h4">
                     <a
-                      href="../blog/blog-post-study-choice.html"
+                      href="../blog/page-not-found.html"
                       class="text-decoration-none"
                       >Why I Chose ICT: My Journey to HZ University</a
                     >
@@ -124,7 +155,7 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <a
-                      href="../blog/blog-post-study-choice.html"
+                      href="../blog/page-not-found.html"
                       class="btn btn-outline-primary"
                       >Read More</a
                     >
@@ -134,7 +165,7 @@
               </article>
 
               <!-- Blog Post 2 -->
-              <article class="card mb-4 shadow-sm">
+              <article class="card mb-4 shadow-sm" id="selfeAnalysis">
                 <div class="card-body">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -146,7 +177,7 @@
                   </div>
                   <h2 class="card-title h4">
                     <a
-                      href="../blog/blog-post-swot-analysis.html"
+                      href="../blog/page-not-found.html"
                       class="text-decoration-none"
                       >Personal SWOT Analysis: Understanding My Strengths and
                       Growth Areas</a
@@ -162,7 +193,7 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <a
-                      href="../blog/blog-post-swot-analysis.html"
+                      href="../blog/page-not-found.html"
                       class="btn btn-outline-primary"
                       >Read More</a
                     >
@@ -171,8 +202,8 @@
                 </div>
               </article>
 
-              <!-- Blog Post 3 - Programming Journey -->
-              <article class="card mb-4 shadow-sm">
+              <!-- Blog Post 3 -->
+              <article class="card mb-4 shadow-smid" id="programming">
                 <div class="card-body">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -183,7 +214,9 @@
                     </small>
                   </div>
                   <h2 class="card-title h4">
-                    <a href="#programming-journey" class="text-decoration-none"
+                    <a
+                      href="../blog/page-not-found.html"
+                      class="text-decoration-none"
                       >My Programming Journey: From Elementary School to HZ
                       University</a
                     >
@@ -198,19 +231,18 @@
                   <div
                     class="d-flex justify-content-between align-items-center"
                   >
-                    <button
+                    <a
+                      href="../blog/page-not-found.html"
                       class="btn btn-outline-primary"
-                      onclick="document.getElementById('programming-journey').scrollIntoView({behavior: 'smooth'})"
+                      >Read More</a
                     >
-                      Read Full Story
-                    </button>
                     <small class="text-muted">12 min read</small>
                   </div>
                 </div>
               </article>
 
               <!-- Blog Post 4 -->
-              <article class="card mb-4 shadow-sm">
+              <article class="card mb-4 shadow-sm" id="feedback">
                 <div class="card-body">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -222,7 +254,7 @@
                   </div>
                   <h2 class="card-title h4">
                     <a
-                      href="../blog/blog-post-first-feedback.html"
+                      href="../blog/page-not-found.html"
                       class="text-decoration-none"
                       >First Feedback: Reflections on My SKC Assignment</a
                     >
@@ -237,7 +269,7 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <a
-                      href="../blog/blog-post-first-feedback.html"
+                      href="../blog/page-not-found.html"
                       class="btn btn-outline-primary"
                       >Read More</a
                     >
@@ -247,7 +279,7 @@
               </article>
 
               <!-- Blog Post 5 -->
-              <article class="card mb-4 shadow-sm">
+              <article class="card mb-4 shadow-sm" id="industry">
                 <div class="card-body">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -259,7 +291,7 @@
                   </div>
                   <h2 class="card-title h4">
                     <a
-                      href="../blog/blog-post-ict-field.html"
+                      href="../blog/page-not-found.html"
                       class="text-decoration-none"
                       >Exploring the ICT Field: Opportunities and Career
                       Paths</a
@@ -276,7 +308,7 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <a
-                      href="../blog/blog-post-ict-field.html"
+                      href="../blog/page-not-found.html"
                       class="btn btn-outline-primary"
                       >Read More</a
                     >
@@ -285,34 +317,18 @@
                 </div>
               </article>
             </section>
-
-            <!-- Blog Categories -->
-            <section class="mt-5">
-              <h3 class="h4 mb-3">Blog Categories</h3>
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge bg-primary fs-6 py-2 px-3"
-                  >Study Choice</span
-                >
-                <span class="badge bg-success fs-6 py-2 px-3"
-                  >Self-Analysis</span
-                >
-                <span class="badge bg-info fs-6 py-2 px-3">Programming</span>
-                <span class="badge bg-warning text-dark fs-6 py-2 px-3"
-                  >Feedback</span
-                >
-                <span class="badge bg-secondary fs-6 py-2 px-3">Industry</span>
-              </div>
-            </section>
+            <!-- Blog Posts Feed End -->
           </div>
         </main>
+        <!-- Main Content Area End -->
 
-        <!-- Aside Menu -->
+        <!-- Aside Menu Begin -->
         <aside class="col-lg-3 col-md-4 bg-light py-4">
           <div class="sticky-top" style="top: 100px">
             <h4 class="h5 mb-3">Useful Links</h4>
             <div class="list-group">
               <a
-                href="https://hz.nl/uploads/documents/1.4-Over-HZ/1.4.3-Regelingen-en-documenten/OERS/2023-2024/Juli/CER-HZ-Bachelor-full-time-2023-2024-DEF-version-20230720.pdf"
+                href="https://hz.nl/en/secure/for-students/rules-for-education-and-assessments/rights-and-obligations"
                 class="list-group-item list-group-item-action"
                 target="_blank"
               >
@@ -320,12 +336,11 @@
                 Regulations
               </a>
               <a
-                href="https://hz.nl/uploads/documents/1.4-Over-HZ/1.4.3-Regelingen-en-documenten/OERS/2023-2024/Juli/TWE/IR-B-HBO-ICT-full-time-2023-2024-DEF.pdf"
+                href="https://hz.nl/en/secure/for-students/rules-for-education-and-assessments/use-of-ai"
                 class="list-group-item list-group-item-action"
                 target="_blank"
               >
-                <i class="bi bi-file-text me-2"></i>Implementation Regulations
-                HBO-ICT
+                <i class="bi bi-file-text me-2"></i>Use of AI Regulations
               </a>
               <a
                 href="https://learn.hz.nl"
@@ -351,10 +366,12 @@
             </div>
           </div>
         </aside>
+        <!-- Aside Menu End -->
       </div>
     </div>
+    <!-- Main Content End -->
 
-    <!-- Footer -->
+    <!-- Footer Begin -->
     <footer class="bg-dark text-light py-4 mt-5">
       <div class="container">
         <div class="row">
@@ -370,6 +387,7 @@
         </div>
       </div>
     </footer>
+    <!-- Footer End -->
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

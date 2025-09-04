@@ -12,11 +12,11 @@
 
   /* Typography */
   --font-family-primary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --font-size-base: 1rem;
+  --font-size-base: 1rem; /* Alapból kb. 16px de egyszerűbb így nyomon követni és egységesíteni */
   --line-height-base: 1.6;
 
   /* Spacing */
-  --section-padding: 4rem 0;
+  --section-padding: 4rem 0; /* 4rem felül és alul, 0 balra és jobbra */
   --card-border-radius: 0.5rem;
   --transition-speed: 0.3s;
 }
@@ -28,19 +28,14 @@ body {
   color: var(--hz-dark);
 }
 
-/* Smooth scrolling for anchor links */
+/* Ezt mindenképpen hagyd meg, mert nagyon jó pl akkor, 
+hogyha pl egy oldalon pl ID-t használsz mert akkor nem egyből fog udaugrani, 
+hanem szép finoman csk odacsúszik.  */
 html {
   scroll-behavior: smooth;
 }
 
 /* ===== NAVIGATION STYLES ===== */
-.navbar-brand img {
-  transition: transform var(--transition-speed) ease;
-}
-
-.navbar-brand:hover img {
-  transform: scale(1.05);
-}
 
 /* Active navigation link styling */
 .navbar-nav .nav-link.active {
@@ -67,7 +62,9 @@ html {
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--hz-accent) !important;
+  color: var(
+    --hz-accent
+  ) !important; /* Nem feltétlen nagyon jó de így felül tudom írni a Bootstrap szabályait */
 }
 
 /* ===== HERO SECTION STYLES ===== */
@@ -75,14 +72,6 @@ html {
   background: linear-gradient(135deg, var(--hz-light) 0%, #e3f2fd 100%);
   border-radius: var(--card-border-radius);
   margin-bottom: 2rem;
-}
-
-.hero-section img {
-  transition: transform var(--transition-speed) ease;
-}
-
-.hero-section img:hover {
-  transform: scale(1.02);
 }
 
 /* ===== CARD STYLES ===== */
@@ -101,7 +90,7 @@ html {
 /* ===== BUTTON STYLES ===== */
 .btn {
   border-radius: var(--card-border-radius);
-  transition: all var(--transition-speed) ease;
+  transition: all var(--transition-speed) ease; /* Ezt azért hagyd meg, mert így szép finoman animálódik minden hover esetén */
   font-weight: 500;
 }
 
@@ -134,14 +123,20 @@ aside {
 
 .list-group-item {
   border: none;
-  border-radius: var(--card-border-radius) !important;
+  border-radius: var(
+    --card-border-radius
+  ) !important; /* !important kell, mert a Bootstrap-nek van egy ilyen szabálya */
   margin-bottom: 0.25rem;
   transition: all var(--transition-speed) ease;
 }
 
 .list-group-item:hover {
-  background-color: var(--hz-primary) !important;
-  border-color: var(--hz-primary) !important;
+  background-color: var(
+    --hz-primary
+  ) !important; /* !important kell, mert a Bootstrap-nek van egy ilyen szabálya */
+  border-color: var(
+    --hz-primary
+  ) !important; /* !important kell, mert a Bootstrap-nek van egy ilyen szabálya */
   color: white;
   transform: translateX(5px);
   box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
@@ -153,48 +148,13 @@ aside {
 
 .list-group-item:hover i {
   transform: scale(1.1);
-  color: inherit !important;
-}
-
-/* Fix icon visibility in navigation and sidebar links */
-.list-group-item:hover .bi,
-.list-group-item:focus .bi,
-.list-group-item.active .bi {
-  color: white !important;
-}
-
-/* Fix icon visibility in technical interests section */
-.list-group-item:hover .text-primary,
-.list-group-item:focus .text-primary {
-  color: white !important;
-}
-
-/* Ensure navbar icons remain visible during focus states */
-.navbar-nav .nav-link:hover .bi,
-.navbar-nav .nav-link:focus .bi,
-.navbar-nav .nav-link.active .bi {
-  color: white !important;
-}
-
-/* Additional coverage for any other interactive elements with icons */
-.btn:hover .bi,
-.btn:focus .bi,
-.card:hover .bi,
-a:hover .bi,
-a:focus .bi {
-  transition: color var(--transition-speed) ease;
-}
-
-/* Ensure sufficient contrast for accessibility */
-.list-group-item-action:hover .bi,
-.list-group-item-action:focus .bi {
-  color: white !important;
+  color: inherit !important; /* Ikon színét örökli a szülőtől (list-group-item) */
 }
 
 /* ===== DASHBOARD STYLES ===== */
 .table {
   border-radius: var(--card-border-radius);
-  overflow: hidden;
+  overflow: hidden; /* Ezt azért hagyd meg, mert így a táblázat sarkai is lekerekítettek lesznek */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -598,37 +558,4 @@ footer p {
   .timeline-item .card:hover {
     transform: translateY(-2px);
   }
-}
-
-/* ===== PROFILE PAGE CHARACTERISTICS HOVER EFFECTS ===== */
-/* Note: .list-group-item transition and hover effects are already defined above in ASIDE MENU STYLES section */
-
-/* Enhanced text and icon color handling for list group items on hover */
-.list-group-item:hover strong,
-.list-group-item:hover p,
-.list-group-item:hover .text-muted {
-  color: white !important;
-}
-
-/* Note: Icon hover effects are handled in the main .list-group-item:hover i rule above */
-
-/* Specific icon color preservation on hover */
-.list-group-item:hover .text-warning {
-  color: #ffc107 !important;
-}
-
-.list-group-item:hover .text-success {
-  color: #28a745 !important;
-}
-
-.list-group-item:hover .text-primary {
-  color: #ffffff !important;
-}
-
-.list-group-item:hover .text-info {
-  color: #17a2b8 !important;
-}
-
-.list-group-item:hover .text-secondary {
-  color: #6c757d !important;
 }

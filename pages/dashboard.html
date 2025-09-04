@@ -3,12 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Study Progress | My ICT Portfolio</title>
+    <title>ICT Portfolio of Daniel Soos | Dashboard - Study Progress</title>
     <meta
       name="description"
       content="Track my academic progress through the HBO-ICT program at HZ University, including courses, grades, and study achievements."
     />
 
+    <!-- Favicon Begin -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/hz-logo-favicon.png"
+    />
+    <!-- Favicon End-->
+
+    <!-- Styling Begin -->
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -21,16 +31,17 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <!-- Styling End-->
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- Navigation Begin -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
       <div class="container">
         <a class="navbar-brand" href="../index.html">
           <img
-            src="../assets/images/hz-logo.jpg"
+            src="../assets/images/hz-logo.png"
             alt="HZ University of Applied Sciences Logo"
-            height="30"
+            height="35"
             class="me-2"
           />
           My ICT Portfolio
@@ -64,14 +75,15 @@
         </div>
       </div>
     </nav>
+    <!-- Navigation End -->
 
-    <!-- Main Content -->
+    <!-- Main Content Begin -->
     <div class="container-fluid">
       <div class="row">
-        <!-- Main Content Area -->
+        <!-- Main Content Area Begin -->
         <main class="col-lg-9 col-md-8">
           <div class="container py-4">
-            <!-- Dashboard Header -->
+            <!-- Dashboard Header Begin -->
             <section class="mb-4">
               <h1 class="display-5 fw-bold text-primary mb-3">
                 Study Dashboard
@@ -81,8 +93,9 @@
                 of Applied Sciences.
               </p>
             </section>
+            <!-- Dashboard Header End -->
 
-            <!-- Disclaimer Notice -->
+            <!-- Disclaimer Notice Begin -->
             <section class="mb-4">
               <div class="alert alert-warning border-0 shadow-sm" role="alert">
                 <div class="d-flex align-items-start">
@@ -122,45 +135,59 @@
                 </div>
               </div>
             </section>
+            <!-- Disclaimer Notice End -->
 
-            <!-- Progress Overview -->
+            <!-- Progress Overview Begin -->
             <section class="mb-5">
               <div class="row">
+                <!-- First card Begin -->
                 <div class="col-md-4 mb-3">
                   <div class="card bg-primary text-white">
                     <div class="card-body text-center">
                       <h5 class="card-title">Current Year</h5>
                       <h2 class="display-6">1st</h2>
+                      <!-- Kb. 1,25rem (~20px) -->
                       <p class="card-text">Propaedeutic Year</p>
                     </div>
                   </div>
                 </div>
+                <!-- First card End -->
+
+                <!-- Second card Begin -->
                 <div class="col-md-4 mb-3">
                   <div class="card bg-success text-white">
                     <div class="card-body text-center">
                       <h5 class="card-title">Credits Earned</h5>
                       <h2 class="display-6">15</h2>
+                      <!-- Kb. 1,25rem (~20px) -->
                       <p class="card-text">out of 60 EC</p>
                     </div>
                   </div>
                 </div>
+                <!-- Second card End -->
+
+                <!-- Third card Begin -->
                 <div class="col-md-4 mb-3">
                   <div class="card bg-warning text-dark">
                     <div class="card-body text-center">
                       <h5 class="card-title">NBSA Progress</h5>
                       <h2 class="display-6">25%</h2>
+                      <!-- Kb. 1,25rem (~20px) -->
                       <p class="card-text">Need 45 EC minimum</p>
                     </div>
                   </div>
                 </div>
+                <!-- Third card End -->
               </div>
             </section>
+            <!-- Progress Overview End -->
 
-            <!-- Progress Bar -->
+            <!-- Progress Bar Begin -->
             <section class="mb-5">
               <h3 class="h4 mb-3">Study Progress Visualization</h3>
               <div class="card">
                 <div class="card-body">
+                  <!-- First progressbar Begin -->
                   <div class="mb-3">
                     <div class="d-flex justify-content-between mb-1">
                       <span>Overall Progress (15/60 EC)</span>
@@ -174,6 +201,9 @@
                       ></div>
                     </div>
                   </div>
+                  <!-- First progressbar End -->
+
+                  <!-- Second progressbar Begin -->
                   <div class="mb-3">
                     <div class="d-flex justify-content-between mb-1">
                       <span>NBSA Boundary Progress (15/45 EC)</span>
@@ -187,6 +217,7 @@
                       ></div>
                     </div>
                   </div>
+                  <!-- Second progressbar End -->
                   <small class="text-muted">
                     <i class="bi bi-info-circle me-1"></i>
                     NBSA (Negative Binding Study Advice) requires minimum 45 EC
@@ -195,8 +226,9 @@
                 </div>
               </div>
             </section>
+            <!-- Progress Bar End -->
 
-            <!-- Study Monitor Table -->
+            <!-- Study Monitor Table Begin -->
             <section class="mb-5">
               <h3 class="h4 mb-3">Study Monitor - First Year Overview</h3>
               <div class="table-responsive">
@@ -386,10 +418,11 @@
                 </table>
               </div>
             </section>
+            <!-- Study Monitor Table End -->
 
-            <!-- Legend -->
+            <!-- Status Guide Begin -->
             <section class="mb-4">
-              <h4 class="h5 mb-3">Legend</h4>
+              <h4 class="h5 mb-3">Status Guide</h4>
               <div class="row">
                 <div class="col-md-6">
                   <div class="d-flex align-items-center mb-2">
@@ -421,10 +454,12 @@
                 </div>
               </div>
             </section>
+            <!-- Status Guide End -->
           </div>
         </main>
+        <!-- Main Content Area End -->
 
-        <!-- Aside Menu -->
+        <!-- Aside Menu Begin -->
         <aside class="col-lg-3 col-md-4 bg-light py-4">
           <div class="sticky-top" style="top: 100px">
             <h4 class="h5 mb-3">Useful Links</h4>
@@ -469,87 +504,26 @@
             </div>
           </div>
         </aside>
+        <!-- Aside Menu End -->
       </div>
     </div>
+    <!-- Main Content End -->
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-4 mt-5">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <p>
-              &copy; 2024 My ICT Portfolio. Created for the PCO course at HZ
-              University.
+          <div class="col-12 text-center">
+            <p class="mb-1">
+              &copy; 2025 My ICT Portfolio. Created for the PCO course at HZ
+              University by Daniel Soos.
             </p>
-          </div>
-          <div class="col-md-6 text-md-end">
-            <p>Built with HTML, CSS, and Bootstrap</p>
+            <p class="mb-0">Built with HTML, CSS, and Bootstrap</p>
           </div>
         </div>
       </div>
     </footer>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Dashboard Toast Notification Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const toast = document.getElementById("dashboardToast");
-        const progressBar = document.getElementById("dashboardToastProgress");
-        const countdown = document.getElementById("dashboardCountdown");
-        const bsToast = new bootstrap.Toast(toast, {
-          autohide: false, // We'll handle auto-hide manually
-        });
-
-        let timeLeft = 15;
-        let progressInterval;
-        let countdownInterval;
-        let hasShown = false;
-
-        function showToast() {
-          if (hasShown) return;
-          hasShown = true;
-
-          bsToast.show();
-
-          // Start progress bar animation
-          progressInterval = setInterval(function () {
-            const progress = ((15 - timeLeft) / 15) * 100;
-            progressBar.style.width = progress + "%";
-          }, 100);
-
-          // Start countdown
-          countdownInterval = setInterval(function () {
-            timeLeft--;
-            countdown.textContent = timeLeft;
-
-            if (timeLeft <= 0) {
-              clearInterval(progressInterval);
-              clearInterval(countdownInterval);
-              bsToast.hide();
-            }
-          }, 1000);
-        }
-
-        // Show toast on page load after a short delay
-        setTimeout(showToast, 1000);
-
-        // Also show toast on first interaction with dashboard elements
-        const dashboardElements = document.querySelectorAll(
-          ".card, .progress, .btn, .list-group-item"
-        );
-        dashboardElements.forEach((element) => {
-          element.addEventListener("mouseenter", showToast, { once: true });
-          element.addEventListener("click", showToast, { once: true });
-        });
-
-        // Clean up intervals when toast is manually dismissed
-        toast.addEventListener("hidden.bs.toast", function () {
-          clearInterval(progressInterval);
-          clearInterval(countdownInterval);
-        });
-      });
-    </script>
   </body>
 </html>

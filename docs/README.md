@@ -37,18 +37,26 @@ This website showcases my journey into the HBO-ICT program and serves as a compr
 ```
 PCO/
 ├── index.html                    # Home page
-├── profile.html                  # Personal profile page
-├── dashboard.html                # Study progress dashboard
-├── blog.html                     # Blog feed page
-├── faq.html                      # FAQ page
-├── blog-post-study-choice.html   # Individual blog post
-├── blog-post-swot-analysis.html  # Individual blog post
-├── css/
-│   └── style.css                 # Custom CSS styles
-├── images/
-│   └── placeholder-info.txt      # Image requirements documentation
-├── js/                           # JavaScript files (if needed)
-└── README.md                     # This file
+├── pages
+│   └── profile.html              # Personal profile page
+│   └── dashboard.html            # Study progress dashboard
+│   └── blog.html                 # Blog feed page
+│   └── faq.html                  # FAQ page
+├── assets
+│   └── css/
+│   │   └── style.css                 # Custom CSS styles
+│   └── images/
+│   │   └── danisoos.jpg
+│   │   └── hero-coding-laptop.jpg
+│   │   └── hz-logo-favicon.png
+│   │   └── hz-logo.png
+│   │   └── engineering.jpg
+│   └──js/
+├── docs/
+│   └── README.md
+└── blog/
+    └── page-not-found.html
+
 ```
 
 ## 🎨 Design System

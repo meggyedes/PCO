@@ -1,0 +1,38 @@
+/* ===== BLOG STYLES ===== */
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  color: var(--hz-primary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content h2 {
+  border-bottom: 2px solid var(--hz-accent);
+  padding-bottom: 0.5rem;
+}
+
+.blog-content p {
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin-bottom: 1.2rem;
+  padding-left: 2rem;
+}
+
+.blog-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Blog post cards */
+.card-title a {
+  color: var(--hz-primary);
+  transition: color var(--transition-speed) ease;
+}
+
+.card-title a:hover {
+  color: var(--hz-secondary);
+}

@@ -1,9 +1,0 @@
-- "Page Not Found oldalon" a linkeket meg kell fixálni,
-  mert most azok nincsenek deklarálva, illetve a módosításokat fel kell tölteni Git-re.
-
-- Outdated a "README" fájl, ezzel is kell majd foglalkozni egy keveset.
-
-- Blog oldalakat illetve bejegyzéseket meg kell csinálni.
-  o Ehhez fontos, hogy egy sztorit kitaláljak / elmondjak, hogy relatív hiteles legyen.
-  o Illetve ne felejtsd el azt sem, hogy kellenek lista elemek fentre, hogy melyik menüpontban (Blog), melyik kategória (Study Choice), melyik cikkében vagy.
-  Kb.: Blog > Study Choice > Miért választottam az Informatikát?

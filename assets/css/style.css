@@ -132,15 +132,8 @@ aside {
 }
 
 .list-group-item:hover {
-  background-color: var(
-    --hz-primary
-  ) !important; /* !important kell, mert a Bootstrap-nek van egy ilyen szabálya */
-  border-color: var(
-    --hz-primary
-  ) !important; /* !important kell, mert a Bootstrap-nek van egy ilyen szabálya */
-  color: white;
   transform: translateX(5px);
-  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 4px 15px rgba(163, 163, 164, 0.674);
 }
 
 .list-group-item i {

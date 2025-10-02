@@ -36,7 +36,7 @@ This portfolio website is designed to track and showcase my academic progress in
 - **Navigation**: Easy browsing between blog posts with breadcrumb navigation
 
 ### ❓ **FAQ Page**
-- **Comprehensive Information**: 7 detailed FAQ entries about HZ University facilities and procedures
+- **Comprehensive Information**: 8 detailed FAQ entries about HZ University facilities and procedures
 - **Accordion Layout**: Collapsible sections for easy navigation
 - **Topics Include**: Study locations, transportation, accident reporting, passport photo upload, and more
 - **Search-friendly Structure**: Well-organized content for easy information retrieval

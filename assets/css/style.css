@@ -318,3 +318,24 @@ footer p {
     font-size: 2rem;
   }
 }
+
+/* ===== CLICKABLE CARD STYLES ===== */
+.card-hover {
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Ensure clickable cards maintain proper text color */
+a .card-hover .card-title,
+a .card-hover .card-text {
+  color: inherit;
+}
+
+a:hover .card-hover .card-title {
+  color: var(--hz-primary);
+}

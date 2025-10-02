@@ -147,14 +147,14 @@
                   <!-- First progressbar Begin -->
                   <div class="mb-3">
                     <div class="d-flex justify-content-between mb-1">
-                      <span>Overall Progress (15/60 EC)</span>
-                      <span>25%</span>
+                      <span>Overall Progress (2.5/60 EC)</span>
+                      <span>4.2%</span>
                     </div>
                     <div class="progress" style="height: 20px">
                       <div
                         class="progress-bar bg-success"
                         role="progressbar"
-                        style="width: 25%"
+                        style="width: 4.2%"
                       ></div>
                     </div>
                   </div>
@@ -163,14 +163,14 @@
                   <!-- Second progressbar Begin -->
                   <div class="mb-3">
                     <div class="d-flex justify-content-between mb-1">
-                      <span>NBSA Boundary Progress (15/45 EC)</span>
-                      <span>33%</span>
+                      <span>NBSA Boundary Progress (2.5/45 EC)</span>
+                      <span>5.6%</span>
                     </div>
                     <div class="progress" style="height: 20px">
                       <div
                         class="progress-bar bg-warning"
                         role="progressbar"
-                        style="width: 33%"
+                        style="width: 5.6%"
                       ></div>
                     </div>
                   </div>
@@ -196,96 +196,291 @@
                 <table class="table table-bordered table-hover">
                   <thead class="table-primary">
                     <tr>
-                      <th style="width: 10%">Quarter</th>
-                      <th style="width: 30%">Course</th>
-                      <th style="width: 8%">EC</th>
-                      <th style="width: 30%">Assessment</th>
-                      <th style="width: 10%">Grade</th>
+                      <th style="width: 8%">Quarter</th>
+                      <th style="width: 25%">Course</th>
+                      <th style="width: 6%">EC</th>
+                      <th style="width: 28%">Assessment</th>
+                      <th style="width: 8%">Weight</th>
+                      <th style="width: 8%">Grade</th>
                       <th style="width: 12%">Status</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- QUARTER 1 -->
-                    <tr class="table-success">
-                      <td rowspan="1" class="align-middle fw-bold">Q1</td>
-                      <td class="align-middle">Program & Career Orientation (PCO)</td>
-                      <td class="align-middle">2.5</td>
-                      <td>Individual Presentation</td>
-                      <td class="align-middle text-success fw-bold">7.8</td>
-                      <td><span class="badge bg-success">Passed</span></td>
+                    <!-- QUARTER 1 - PCO -->
+                    <tr class="table-light">
+                      <td class="align-middle fw-bold">Q1</td>
+                      <td class="align-middle">
+                        <strong>Program & Career Orientation</strong><br>
+                        <small class="text-muted">CU75001V3</small>
+                      </td>
+                      <td class="align-middle text-center">2.5</td>
+                      <td>Presentation (individual)</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-success fw-bold">7.8</td>
+                      <td class="align-middle"><span class="badge bg-success">Passed</span></td>
                     </tr>
 
-                    <!-- QUARTER 2 -->
-                    <tr class="table-light">
-                      <td rowspan="3" class="align-middle fw-bold">Q2</td>
-                      <td class="align-middle">Computer Science Basics (CSB)</td>
-                      <td class="align-middle">5</td>
-                      <td>Written Knowledge Test</td>
-                      <td class="align-middle text-muted">-</td>
-                      <td><span class="badge bg-primary">Upcoming</span></td>
-                    </tr>
-                    <tr class="table-light">
-                      <td class="align-middle">Programming Basics (PB)</td>
-                      <td class="align-middle">5</td>
-                      <td>Case Study Exam</td>
-                      <td class="align-middle text-muted">-</td>
-                      <td><span class="badge bg-primary">Upcoming</span></td>
-                    </tr>
-                    <tr class="table-light">
-                      <td class="align-middle">Object-Oriented Programming (OOP)</td>
-                      <td class="align-middle">10</td>
-                      <td>Group Presentation + Written Test</td>
-                      <td class="align-middle text-muted">-</td>
-                      <td><span class="badge bg-primary">Upcoming</span></td>
-                    </tr>
-
-                    <!-- QUARTER 3 -->
+                    <!-- IT Personality Project Week 1 -->
                     <tr>
-                      <td rowspan="2" class="align-middle fw-bold">Q3</td>
-                      <td class="align-middle">Framework Project 1 (FP1)</td>
-                      <td class="align-middle">10</td>
-                      <td>Case Study + Presentation + Portfolio</td>
-                      <td class="align-middle text-muted">-</td>
-                      <td><span class="badge bg-secondary">Not Started</span></td>
+                      <td class="align-middle fw-bold">Q1</td>
+                      <td class="align-middle">
+                        <strong>IT Personality Project Week 1</strong><br>
+                        <small class="text-muted">CU75054V1</small>
+                      </td>
+                      <td class="align-middle text-center">1.25</td>
+                      <td>Portfolio</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td><span class="badge bg-warning text-dark">In Progress</span></td>
+                    </tr>
+
+                    <!-- QUARTER 1 & 2 - OOP -->
+                    <tr>
+                      <td rowspan="2" class="align-middle fw-bold">Q1-Q2</td>
+                      <td rowspan="2" class="align-middle">
+                        <strong>Object-Oriented Programming</strong><br>
+                        <small class="text-muted">CU75004V1</small>
+                      </td>
+                      <td rowspan="2" class="align-middle text-center">10</td>
+                      <td>Presentation (group)</td>
+                      <td class="align-middle text-center">50%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td rowspan="2" class="align-middle"><span class="badge bg-primary">Upcoming</span></td>
                     </tr>
                     <tr>
-                      <td class="align-middle">Business Understanding Basics (BUB)</td>
-                      <td class="align-middle">2.5</td>
-                      <td>Video Assignment</td>
-                      <td class="align-middle text-muted">-</td>
-                      <td><span class="badge bg-secondary">Not Started</span></td>
+                      <td>Written knowledge test</td>
+                      <td class="align-middle text-center">50%</td>
+                      <td class="align-middle text-center text-muted">-</td>
                     </tr>
 
-                    <!-- QUARTER 4 -->
+                    <!-- QUARTER 2 - CSB -->
                     <tr class="table-light">
-                      <td rowspan="1" class="align-middle fw-bold">Q4</td>
-                      <td class="align-middle">Framework Project 2 (FP2)</td>
-                      <td class="align-middle">10</td>
-                      <td>Group Delivery + Individual Assessment + Portfolio</td>
-                      <td class="align-middle text-muted">-</td>
-                      <td><span class="badge bg-secondary">Not Started</span></td>
+                      <td class="align-middle fw-bold">Q2</td>
+                      <td class="align-middle">
+                        <strong>Computer Science Basics</strong><br>
+                        <small class="text-muted">CU75002V2</small>
+                      </td>
+                      <td class="align-middle text-center">5</td>
+                      <td>Written knowledge test</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-success fw-bold">8.8</td>
+                      <td class="align-middle"><span class="badge bg-success">Passed</span></td>
                     </tr>
 
-                    <!-- YEAR-LONG COURSES -->
+                    <!-- QUARTER 2 - Programming Basics -->
                     <tr>
-                      <td class="align-middle fw-bold">Q1-Q4</td>
-                      <td class="align-middle">Personal Professional Development (PPD)</td>
-                      <td class="align-middle">12.5</td>
-                      <td>Criterion-focused Interview</td>
-                      <td class="align-middle text-muted">-</td>
-                      <td><span class="badge bg-warning text-black">In Progress</span></td>
+                      <td class="align-middle fw-bold">Q2</td>
+                      <td class="align-middle">
+                        <strong>Programming Basics</strong><br>
+                        <small class="text-muted">CU75003V1</small>
+                      </td>
+                      <td class="align-middle text-center">5</td>
+                      <td>Case study exam</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td class="align-middle"><span class="badge bg-primary">Upcoming</span></td>
                     </tr>
 
+                    <!-- QUARTER 3 - Framework Project 1 -->
                     <tr class="table-light">
-                      <td class="align-middle fw-bold">Q1-Q4</td>
-                      <td class="align-middle">IT Personality (Choice of 5 EC)</td>
-                      <td class="align-middle">5</td>
-                      <td>Portfolio Assessments</td>
-                      <td class="align-middle text-muted">-</td>
+                      <td rowspan="3" class="align-middle fw-bold">Q3</td>
+                      <td rowspan="3" class="align-middle">
+                        <strong>Framework Project 1</strong><br>
+                        <small class="text-muted">CU75080V3</small>
+                      </td>
+                      <td rowspan="3" class="align-middle text-center">10</td>
+                      <td>On-site case study exam</td>
+                      <td class="align-middle text-center">50%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td rowspan="3" class="align-middle"><span class="badge bg-secondary">Not Started</span></td>
+                    </tr>
+                    <tr class="table-light">
+                      <td>Group presentation on project result</td>
+                      <td class="align-middle text-center">25%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                    </tr>
+                    <tr class="table-light">
+                      <td>Group portfolio with individual elements on requirements</td>
+                      <td class="align-middle text-center">25%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                    </tr>
+
+                    <!-- QUARTER 3 - Business Understanding Basics -->
+                    <tr>
+                      <td class="align-middle fw-bold">Q3</td>
+                      <td class="align-middle">
+                        <strong>Business Understanding Basics</strong><br>
+                        <small class="text-muted">CU75081V1</small>
+                      </td>
+                      <td class="align-middle text-center">2.5</td>
+                      <td>Video assignment (individual)</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td class="align-middle"><span class="badge bg-secondary">Not Started</span></td>
+                    </tr>
+
+                    <!-- IT Personality International Week -->
+                    <tr class="table-light">
+                      <td class="align-middle fw-bold">Q3</td>
+                      <td class="align-middle">
+                        <strong>IT Personality International Week</strong><br>
+                        <small class="text-muted">CU75055V1</small>
+                      </td>
+                      <td class="align-middle text-center">1.25</td>
+                      <td>Portfolio</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
                       <td><span class="badge bg-danger">Failed</span></td>
+                    </tr>
+
+                    <!-- IT Personality 1 -->
+                    <tr>
+                      <td class="align-middle fw-bold">Q1-Q4</td>
+                      <td class="align-middle">
+                        <strong>IT Personality 1</strong><br>
+                        <small class="text-muted">CU75056V1</small>
+                      </td>
+                      <td class="align-middle text-center">1.25</td>
+                      <td>Portfolio</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td><span class="badge bg-warning text-dark">In Progress</span></td>
+                    </tr>
+
+                    <!-- IT Personality 2 -->
+                    <tr class="table-light">
+                      <td class="align-middle fw-bold">Q1-Q4</td>
+                      <td class="align-middle">
+                        <strong>IT Personality 2</strong><br>
+                        <small class="text-muted">CU75057V1</small>
+                      </td>
+                      <td class="align-middle text-center">1.25</td>
+                      <td>Portfolio</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td><span class="badge bg-warning text-dark">In Progress</span></td>
+                    </tr>
+
+                    <!-- IT Personality Project Week 2 -->
+                    <tr>
+                      <td class="align-middle fw-bold">Q1-Q4</td>
+                      <td class="align-middle">
+                        <strong>IT Personality Project Week 2</strong><br>
+                        <small class="text-muted">CU75058V1</small>
+                      </td>
+                      <td class="align-middle text-center">1.25</td>
+                      <td>Portfolio</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td><span class="badge bg-danger">Failed</span></td>
+                    </tr>
+
+                    <!-- IT Personality 3 -->
+                    <tr class="table-light">
+                      <td class="align-middle fw-bold">Q1-Q4</td>
+                      <td class="align-middle">
+                        <strong>IT Personality 3</strong><br>
+                        <small class="text-muted">CU75059V1</small>
+                      </td>
+                      <td class="align-middle text-center">1.25</td>
+                      <td>Portfolio</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td><span class="badge bg-secondary">Not Started</span></td>
+                    </tr>
+
+                    <!-- IT Personality 4 -->
+                    <tr>
+                      <td class="align-middle fw-bold">Q1-Q4</td>
+                      <td class="align-middle">
+                        <strong>IT Personality 4</strong><br>
+                        <small class="text-muted">CU75060V1</small>
+                      </td>
+                      <td class="align-middle text-center">1.25</td>
+                      <td>Portfolio</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td><span class="badge bg-secondary">Not Started</span></td>
+                    </tr>
+
+                    <!-- QUARTER 4 - Framework Project 2 -->
+                    <tr>
+                      <td rowspan="3" class="align-middle fw-bold">Q4</td>
+                      <td rowspan="3" class="align-middle">
+                        <strong>Framework Project 2</strong><br>
+                        <small class="text-muted">CU75011V4</small>
+                      </td>
+                      <td rowspan="3" class="align-middle text-center">10</td>
+                      <td>Final group delivery (presentation)</td>
+                      <td class="align-middle text-center">25%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td rowspan="3" class="align-middle"><span class="badge bg-secondary">Not Started</span></td>
+                    </tr>
+                    <tr>
+                      <td>Individual project assessment (portfolio)</td>
+                      <td class="align-middle text-center">25%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                    </tr>
+                    <tr>
+                      <td>IT Development portfolio</td>
+                      <td class="align-middle text-center">50%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                    </tr>
+
+                    <!-- YEAR-LONG - PPD Exploration -->
+                    <tr class="table-light">
+                      <td class="align-middle fw-bold">Q1-Q4</td>
+                      <td class="align-middle">
+                        <strong>Personal Professional Development Exploration</strong><br>
+                        <small class="text-muted">CU75068V3</small>
+                      </td>
+                      <td class="align-middle text-center">12.5</td>
+                      <td>Criterion-focused interview</td>
+                      <td class="align-middle text-center">100%</td>
+                      <td class="align-middle text-center text-muted">-</td>
+                      <td class="align-middle"><span class="badge bg-warning text-dark">In Progress</span></td>
                     </tr>
                   </tbody>
                 </table>
+              </div>
+
+              <!-- IT Personality Note -->
+              <div class="alert alert-info mt-3">
+                <button
+                  class="btn btn-link p-0 text-decoration-none text-info fw-bold w-100 text-start d-flex align-items-center justify-content-between"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#itPersonalityInfo"
+                  aria-expanded="false"
+                  aria-controls="itPersonalityInfo"
+                >
+                  <span>
+                    <i class="bi bi-info-circle me-2"></i>IT Personality Program Information
+                  </span>
+                  <i class="bi bi-chevron-down" id="itPersonalityChevron"></i>
+                </button>
+
+                <div class="collapse mt-3" id="itPersonalityInfo">
+                  <p class="mb-2">
+                    <strong>Total Required:</strong> 5 EC from IT Personality activities
+                  </p>
+                  <p class="mb-2">
+                    <strong>Available Options:</strong> Students can choose from various IT Personality courses (each worth 1.25 EC):
+                  </p>
+                  <ul class="mb-2">
+                    <li>IT Personality Project Week 1 (CU75054V1)</li>
+                    <li>IT Personality International Week (CU75055V1)</li>
+                    <li>IT Personality 1 (CU75056V1)</li>
+                    <li>IT Personality 2 (CU75057V1)</li>
+                    <li>IT Personality Project Week 2 (CU75058V1)</li>
+                    <li>IT Personality 3 (CU75059V1)</li>
+                    <li>IT Personality 4 (CU75060V1)</li>
+                  </ul>
+                  <p class="mb-0">
+                    <strong>Note:</strong> Students must complete 4 activities (4 × 1.25 EC = 5 EC) to fulfill the IT Personality requirement.
+                    All assessments are Pass/Fail based on portfolio submissions.
+                  </p>
+                </div>
               </div>
             </section>
             <!-- Study Monitor Table End -->
@@ -396,5 +591,23 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript for IT Personality collapse -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const itPersonalityCollapse = document.getElementById('itPersonalityInfo');
+        const chevronIcon = document.getElementById('itPersonalityChevron');
+
+        itPersonalityCollapse.addEventListener('show.bs.collapse', function() {
+          chevronIcon.classList.remove('bi-chevron-down');
+          chevronIcon.classList.add('bi-chevron-up');
+        });
+
+        itPersonalityCollapse.addEventListener('hide.bs.collapse', function() {
+          chevronIcon.classList.remove('bi-chevron-up');
+          chevronIcon.classList.add('bi-chevron-down');
+        });
+      });
+    </script>
   </body>
 </html>

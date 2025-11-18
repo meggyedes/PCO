@@ -1,0 +1,58 @@
+Project Overview
+
+The goal of this project is to create a simple browser-based, TypeScript-powered space adventure game for Dutch children aged 9–12, where the player controls a spaceship traveling between planets while learning scientific concepts. The game should function in two languages, English and Dutch, so from the start, all text content (UI, questions, descriptions) should be stored separately or clearly structured, allowing easy language switching.
+
+Technically, the project will consist of a basic HTML page containing the main game area (either a canvas element or a main “game field” div), as well as a menu, language selector, and a section where the player can view their progress or achievements. Most of the logic will be written in TypeScript: handling the game state, different scenes (menu, gameplay, results screen), spaceship movement, planet positioning, collisions, and launching mini-games. The required graphics — such as backgrounds, planets, the spaceship, and icons — can be either drawn using CSS/Canvas or imported as public domain images. The user interface should be colorful and child-friendly but not cluttered.
+
+From a gameplay perspective, it is important that players receive continuous feedback and rewarding “dopamine moments.” Each level or mini-game should have a quick and clear goal (for example, reaching a planet while avoiding obstacles, then answering a few quiz questions), and successful completion should trigger instant gratification such as earning points, stars, badges, unlocking new planets, or displaying fun animations. Additionally, a simple results system should allow players to view their past achievements — total score, completed planets, learning progress, or a “galaxy progress bar” that visually represents their overall journey. These results can be stored locally in the browser using localStorage, ensuring the player’s progress is saved between sessions.
+
+The project will include three main documentation components: a technical document, a user manual, and a maintenance guide.
+The technical document will describe the technologies used (HTML, CSS, TypeScript), the folder structure, the main modules, and explain how the game loop, language switching, and data persistence are implemented.
+The user manual will focus on players and teachers, describing how to launch the game, switch languages, control the spaceship, understand the points and badges, and access progress information.
+The maintenance document will outline how to add new planets, quiz questions, images, or languages in the future, and describe the process for rebuilding and redeploying the updated project.
+
+Overall, the game will serve as an educational, motivational, movement-based experience where children learn about science through space adventures. A well-structured reward system and a clear progress screen will help maintain engagement and a sense of accomplishment. Behind the scenes, the project will feature organized, object-oriented TypeScript code and thorough documentation, making it both an effective learning project and a presentable school deliverable.
+
+Project Requirements
+
+The game must be developed using TypeScript.
+
+No JavaScript frameworks (e.g., PhaserJS), libraries (e.g., PixiJS), or game engines (e.g., Unity, Godot) may be used.
+
+Proper Object-Oriented Programming (OOP) principles must be applied throughout the game.
+
+The use of AI tools is not disallowed, but discouraged, and any AI-generated code must still adhere to OOP principles.
+
+All team members must understand and be able to explain all parts of the code.
+
+All work must be committed to the GitHub repository provided by the program.
+
+The final version of the game must be fully playable from GitHub Pages.
+
+A Game Design Document (GDD) must be created to ensure that development aligns with the game’s goals.
+
+All documentation must be completed on the GitHub repository wiki.
+
+The document should comprehensively cover the following aspects:
+
+Target Audience
+
+Game Goals and Learning Objectives
+
+Game Mechanics and Features
+
+Visuals and Game Interface
+
+Plot and Game Flow
+
+Game Architecture
+
+Playtesting and Feedback
+
+All assets used must be public domain, Creative Commons, legally licensed, or explicitly created by the team for this project.
+
+All assets must be properly attributed according to their license (for example, on a credit page within the game).
+
+The game must be available in Dutch and optionally also in English.
+
+PABO students may be involved to assist with Dutch translation.

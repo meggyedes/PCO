@@ -1,0 +1,4 @@
+Hi everyone!
+This ZIP file includes all the work I’ve done for the PCO Final Assessment. You can also check out the project on GitHub using this link: https://github.com/meggyedes/PCO
+
+Have a great day!
